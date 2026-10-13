@@ -682,7 +682,7 @@
    "tutorial": "01-Accounting.md"
   },
   {
-   "id": "02-001",
+   "id": "02-001-2",
    "type": "mcq",
    "set": "模拟题 01 · 会计+库存",
    "level": "基础",
@@ -716,7 +716,7 @@
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "02-002",
+   "id": "02-002-2",
    "type": "mcq",
    "set": "模拟题 01 · 会计+库存",
    "level": "基础",
@@ -750,7 +750,7 @@
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "02-003",
+   "id": "02-003-2",
    "type": "mcq",
    "set": "模拟题 01 · 会计+库存",
    "level": "基础",
@@ -784,7 +784,7 @@
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "02-004",
+   "id": "02-004-2",
    "type": "mcq",
    "set": "模拟题 01 · 会计+库存",
    "level": "基础",
@@ -818,7 +818,7 @@
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "02-005",
+   "id": "02-005-2",
    "type": "mcq",
    "set": "模拟题 01 · 会计+库存",
    "level": "基础",
@@ -852,7 +852,7 @@
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "02-006",
+   "id": "02-006-2",
    "type": "mcq",
    "set": "模拟题 01 · 会计+库存",
    "level": "基础",
@@ -886,7 +886,7 @@
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "02-007",
+   "id": "02-007-2",
    "type": "mcq",
    "set": "模拟题 01 · 会计+库存",
    "level": "基础",
@@ -920,7 +920,7 @@
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "02-008",
+   "id": "02-008-2",
    "type": "mcq",
    "set": "模拟题 01 · 会计+库存",
    "level": "基础",
@@ -949,12 +949,12 @@
     }
    ],
    "answer": "B",
-   "explain": "**为什么对**：官方原文——到岸成本用于把**运费、保险、关税、税费及其它费用**这些额外成本计入产品计价，即**分摊到收货的存货价值**上。分摊方式有 5 种：Equal / By Quantity / By Current Cost / By Weight / By Volume。\n**前置开关**：必须在 `Inventory → Configuration → Settings` 的 **Valuation** 板块勾选 **Landed Costs** 并选 **Default Journal**；**不开就没有 `Operations → Landed Costs` 菜单**。\n**易混点**：要用到岸成本，原采购订单产品的**成本方法必须是 AVCO 或 FIFO**（标准成本不行）。",
+   "explain": "**为什么对**：官方原文——到岸成本用于把**运费、保险、关税、税费及其它费用**这些额外成本计入产品计价，即**分摊到收货的存货价值**上。分摊方式有 5 种：Equal / By Quantity / By Current Cost / By Weight / By Volume。\n**前置开关**：必须在 `Inventory → Configuration → Settings` 的 **Valuation** 板块勾选 **Landed Costs** 并选 **Default Journal**；**不开就没有 `Operations → Adjustments → Landed Costs` 菜单**。\n**易混点**：要用到岸成本，原采购订单产品的**成本方法必须是 AVCO 或 FIFO**（标准成本不行）。",
    "source": "inventory/inventory_valuation/landed_costs.html",
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "02-009",
+   "id": "02-009-2",
    "type": "mcq",
    "set": "模拟题 01 · 会计+库存",
    "level": "基础",
@@ -988,7 +988,7 @@
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "02-010",
+   "id": "02-010-2",
    "type": "mcq",
    "set": "模拟题 01 · 会计+库存",
    "level": "基础",
@@ -1022,7 +1022,7 @@
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "02-011",
+   "id": "02-011-2",
    "type": "mcq",
    "set": "模拟题 01 · 会计+库存",
    "level": "基础",
@@ -1047,16 +1047,16 @@
     },
     {
      "key": "D",
-     "text": "`Inventory → Operations → Physical Inventory`"
+     "text": "`Inventory → Operations → Adjustments → Physical Inventory`"
     }
    ],
    "answer": "D",
-   "explain": "**为什么对**：全量盘点在 `Inventory → Operations → Physical Inventory`，官方原文还说明可以在这里调整数量并指定批次。\n**易混点**：**循环盘点（Cycle Counts）** 是另一种按计划分批盘点的做法，两者不是同一个入口。",
+   "explain": "**为什么对**：全量盘点在 `Inventory → Operations → Adjustments → Physical Inventory`，官方原文还说明可以在这里调整数量并指定批次。\n**易混点**：**循环盘点（Cycle Counts）** 是另一种按计划分批盘点的做法，两者不是同一个入口。",
    "source": ".../inventory_management/count_products.html",
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "02-012",
+   "id": "02-012-2",
    "type": "mcq",
    "set": "模拟题 01 · 会计+库存",
    "level": "基础",
@@ -1090,7 +1090,7 @@
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "02-013",
+   "id": "02-013-2",
    "type": "mcq",
    "set": "模拟题 01 · 会计+库存",
    "level": "基础",
@@ -1124,7 +1124,7 @@
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "02-014",
+   "id": "02-014-2",
    "type": "mcq",
    "set": "模拟题 01 · 会计+库存",
    "level": "基础",
@@ -1158,7 +1158,7 @@
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "02-015",
+   "id": "02-015-2",
    "type": "mcq",
    "set": "模拟题 01 · 会计+库存",
    "level": "基础",
@@ -1192,7 +1192,7 @@
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "02-016",
+   "id": "02-016-2",
    "type": "mcq",
    "set": "模拟题 01 · 会计+库存",
    "level": "基础",
@@ -1226,7 +1226,7 @@
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "02-017",
+   "id": "02-017-2",
    "type": "mcq",
    "set": "模拟题 01 · 会计+库存",
    "level": "基础",
@@ -1260,7 +1260,7 @@
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "02-018",
+   "id": "02-018-2",
    "type": "mcq",
    "set": "模拟题 01 · 会计+库存",
    "level": "基础",
@@ -1294,7 +1294,7 @@
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "02-019",
+   "id": "02-019-2",
    "type": "mcq",
    "set": "模拟题 01 · 会计+库存",
    "level": "基础",
@@ -1328,7 +1328,7 @@
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "02-020",
+   "id": "02-020-2",
    "type": "mcq",
    "set": "模拟题 01 · 会计+库存",
    "level": "基础",
@@ -2042,7 +2042,7 @@
    "tutorial": "04-MRP.md"
   },
   {
-   "id": "20-001",
+   "id": "20-001-2",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2076,7 +2076,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "20-002",
+   "id": "20-002-2",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2110,7 +2110,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "20-003",
+   "id": "20-003-2",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2144,7 +2144,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "20-004",
+   "id": "20-004-2",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2178,7 +2178,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "20-005",
+   "id": "20-005-2",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2212,7 +2212,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "20-006",
+   "id": "20-006-2",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2246,7 +2246,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "20-007",
+   "id": "20-007-2",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2280,7 +2280,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "20-008",
+   "id": "20-008-2",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2314,7 +2314,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "20-009",
+   "id": "20-009-2",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2348,7 +2348,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "20-010",
+   "id": "20-010-2",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2382,7 +2382,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "20-011",
+   "id": "20-011-2",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2416,7 +2416,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "20-012",
+   "id": "20-012-2",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2450,7 +2450,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "20-013",
+   "id": "20-013-2",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2484,7 +2484,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "20-014",
+   "id": "20-014-2",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2518,7 +2518,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "20-015",
+   "id": "20-015-2",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2552,7 +2552,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "20-016",
+   "id": "20-016-2",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2586,7 +2586,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "20-017",
+   "id": "20-017-2",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2620,7 +2620,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "20-018",
+   "id": "20-018-2",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2654,7 +2654,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "20-019",
+   "id": "20-019-2",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2688,7 +2688,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "20-020",
+   "id": "20-020-2",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2722,7 +2722,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "20-001",
+   "id": "20-001-3",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2756,7 +2756,7 @@
    "tutorial": "06-Purchase.md"
   },
   {
-   "id": "20-002",
+   "id": "20-002-3",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2790,7 +2790,7 @@
    "tutorial": "06-Purchase.md"
   },
   {
-   "id": "20-003",
+   "id": "20-003-3",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2824,7 +2824,7 @@
    "tutorial": "06-Purchase.md"
   },
   {
-   "id": "20-004",
+   "id": "20-004-3",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2858,7 +2858,7 @@
    "tutorial": "06-Purchase.md"
   },
   {
-   "id": "20-005",
+   "id": "20-005-3",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2892,7 +2892,7 @@
    "tutorial": "06-Purchase.md"
   },
   {
-   "id": "20-006",
+   "id": "20-006-3",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2926,7 +2926,7 @@
    "tutorial": "06-Purchase.md"
   },
   {
-   "id": "20-007",
+   "id": "20-007-3",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2960,7 +2960,7 @@
    "tutorial": "06-Purchase.md"
   },
   {
-   "id": "20-008",
+   "id": "20-008-3",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -2994,7 +2994,7 @@
    "tutorial": "06-Purchase.md"
   },
   {
-   "id": "20-009",
+   "id": "20-009-3",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -3028,7 +3028,7 @@
    "tutorial": "06-Purchase.md"
   },
   {
-   "id": "20-010",
+   "id": "20-010-3",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -3062,7 +3062,7 @@
    "tutorial": "06-Purchase.md"
   },
   {
-   "id": "20-011",
+   "id": "20-011-3",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -3096,7 +3096,7 @@
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "20-012",
+   "id": "20-012-3",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -3130,7 +3130,7 @@
    "tutorial": "06-Purchase.md"
   },
   {
-   "id": "20-013",
+   "id": "20-013-3",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -3164,7 +3164,7 @@
    "tutorial": "06-Purchase.md"
   },
   {
-   "id": "20-014",
+   "id": "20-014-3",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -3198,7 +3198,7 @@
    "tutorial": "06-Purchase.md"
   },
   {
-   "id": "20-015",
+   "id": "20-015-3",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -3232,7 +3232,7 @@
    "tutorial": "06-Purchase.md"
   },
   {
-   "id": "20-016",
+   "id": "20-016-3",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -3266,7 +3266,7 @@
    "tutorial": "06-Purchase.md"
   },
   {
-   "id": "20-017",
+   "id": "20-017-3",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -3300,7 +3300,7 @@
    "tutorial": "06-Purchase.md"
   },
   {
-   "id": "20-018",
+   "id": "20-018-3",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -3334,7 +3334,7 @@
    "tutorial": "06-Purchase.md"
   },
   {
-   "id": "20-019",
+   "id": "20-019-3",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -3368,7 +3368,7 @@
    "tutorial": "06-Purchase.md"
   },
   {
-   "id": "20-020",
+   "id": "20-020-3",
    "type": "mcq",
    "set": "模拟题 02 · 制造+销售+采购",
    "level": "基础",
@@ -4613,7 +4613,7 @@
     }
    ],
    "answer": "B",
-   "explain": "**解析**：循环盘点（Cycle Counts）是**在年度全盘之外加频次**的做法，不是替代。官方明确：公司**仍应每年做一次全量盘点**（`Annual Inventory Day and Month`，默认 12 月 31 日，只能往前提），因为它直接关系到损益记录的正确性。\n**干扰项**：A 正确——循环盘点按库位做，所以必须先开 Storage Locations；C 正确——库位表单的 Cyclic Counting 区里设 Inventory Frequency（天数）；D 正确——入口就是 `Operations → Physical Inventory`，用搜索/分组按 Location 筛。",
+   "explain": "**解析**：循环盘点（Cycle Counts）是**在年度全盘之外加频次**的做法，不是替代。官方明确：公司**仍应每年做一次全量盘点**（`Annual Inventory Day and Month`，默认 12 月 31 日，只能往前提），因为它直接关系到损益记录的正确性。\n**干扰项**：A 正确——循环盘点按库位做，所以必须先开 Storage Locations；C 正确——库位表单的 Cyclic Counting 区里设 Inventory Frequency（天数）；D 正确——入口就是 `Operations → Adjustments → Physical Inventory`，用搜索/分组按 Location 筛。",
    "source": "`inventory/warehouses_storage/inventory_management/cycle_counts`",
    "tutorial": "03-Inventory.md"
   },
@@ -4917,7 +4917,7 @@
     }
    ],
    "answer": "B",
-   "explain": "**解析**：官方把它标为 Important：原采购单上的产品，其产品分类的成本方法**必须是 AVCO 或 FIFO**，**标准成本不行**——因为到岸成本要往计价层上追加价值，而 Standard Cost 是手工维护的固定单价。\n**干扰项**：A 正确——到岸成本产品必须是 **Service** 类型并勾 **Is a Landed Cost**；C 正确——`Settings → Valuation` 勾 **Landed Costs** 后才会多出 **Default Journal** 字段，也才会出现 `Operations → Landed Costs` 菜单（这就是\"找不到按钮\"的原因）；D 正确——分摊方式正好是这 5 种（Equal / By Quantity / By Current Cost / By Weight / By Volume）。",
+   "explain": "**解析**：官方把它标为 Important：原采购单上的产品，其产品分类的成本方法**必须是 AVCO 或 FIFO**，**标准成本不行**——因为到岸成本要往计价层上追加价值，而 Standard Cost 是手工维护的固定单价。\n**干扰项**：A 正确——到岸成本产品必须是 **Service** 类型并勾 **Is a Landed Cost**；C 正确——`Settings → Valuation` 勾 **Landed Costs** 后才会多出 **Default Journal** 字段，也才会出现 `Operations → Adjustments → Landed Costs` 菜单（这就是\"找不到按钮\"的原因）；D 正确——分摊方式正好是这 5 种（Equal / By Quantity / By Current Cost / By Weight / By Volume）。",
    "source": "`inventory/inventory_valuation/landed_costs`",
    "tutorial": "03-Inventory.md"
   },
@@ -4996,6 +4996,766 @@
    "explain": "**解析**：这是 **Odoo 19 相对 18 的最大变化**：永续法不再\"每次库存移动就产生一条分录\"，而是**在发票层面影响存货科目**，期间差异由**期末（closing）分录**统一清掉。官方对照表：Perpetual Entries 从\"发票 + 每一笔移动\"变成\"发票 + 一次期末分录\"；同时 Periodic Anglo-Saxon 从 Not supported 变成 Fully supported。\n**干扰项**：A 描述的是 **Odoo 18 及以前**的行为（时点/版本错位），也正是 19 改掉的那一点；B 把两种方法的行为对调（Periodic 走期末调整，不在发票层面实时结转）；D 与\"Periodic 靠期末调整、19 起该期末分录自动化\"相反。",
    "source": "`inventory/inventory_valuation/cheat_sheet`（Changes in Odoo 19）",
    "tutorial": "03-Inventory.md"
+  },
+  {
+   "id": "34-001",
+   "type": "mcq",
+   "set": "模拟题 03 · 会计案例与分录",
+   "level": "进阶",
+   "module": "会计",
+   "part": "会计 Accounting（20 题）",
+   "file": "34-模拟题-会计案例与分录-20题.md",
+   "num": 1,
+   "stem_en": "A customer invoice of 113,000 (net 100,000 + 13% tax) is posted but not yet paid. What is the effect on the financial statements at this moment?",
+   "stem_zh": "一张含税 113,000 的客户发票（不含税 100,000 + 13% 税）已过账但客户未付款。此刻对报表的影响是什么？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Assets +113,000, and profit increases by 100,000",
+     "zh": "资产 +113,000，利润增加 100,000。"
+    },
+    {
+     "key": "B",
+     "text": "Assets +113,000, and profit remains unchanged until the payment is received",
+     "zh": "资产 +113,000，利润不变，直到收到货款才确认。"
+    },
+    {
+     "key": "C",
+     "text": "Assets unchanged, because revenue is only recognised when cash is collected",
+     "zh": "资产不变，因为只有收到现金才确认收入。"
+    },
+    {
+     "key": "D",
+     "text": "Assets +100,000 and liabilities +13,000, with no profit impact",
+     "zh": "资产 +100,000、负债 +13,000，利润无影响。"
+    }
+   ],
+   "answer": "A",
+   "explain": "**解析**：过账那一刻按权责发生制确认收入：借应收 113,000（资产），贷收入 100,000、贷销项税 13,000（负债）。所以资产净增 113,000、利润 100,000，与何时收款无关。\n**干扰项**：B、C 都把\"收款\"当成了收入确认时点（那是收付实现制）；D 把税额当成纯负债却不承认资产与利润的变化。",
+   "source": "`32-教程-会计11笔业务案例.md`（案例 1）",
+   "tutorial": "32-教程-会计11笔业务案例.md"
+  },
+  {
+   "id": "34-002",
+   "type": "mcq",
+   "set": "模拟题 03 · 会计案例与分录",
+   "level": "进阶",
+   "module": "会计",
+   "part": "会计 Accounting（20 题）",
+   "file": "34-模拟题-会计案例与分录-20题.md",
+   "num": 2,
+   "stem_en": "Which entry records the payment of a customer invoice in Odoo?",
+   "stem_zh": "在 Odoo 里登记客户发票的收款，分录是？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Debit Accounts Receivable, credit Bank",
+     "zh": "借应收账款，贷银行存款。"
+    },
+    {
+     "key": "B",
+     "text": "Debit Bank, credit Accounts Receivable",
+     "zh": "借银行存款，贷应收账款。"
+    },
+    {
+     "key": "C",
+     "text": "Debit Bank, credit Revenue",
+     "zh": "借银行存款，贷收入。"
+    },
+    {
+     "key": "D",
+     "text": "Debit Accounts Receivable, credit Revenue",
+     "zh": "借应收账款，贷收入。"
+    }
+   ],
+   "answer": "B",
+   "explain": "**解析**：收款让银行存款（资产）增加记借方，应收（资产）减少记贷方。收入在**开票过账**时已经确认过，收款这一步不能再记一次收入。\n**干扰项**：A 方向整体写反；C、D 都把收入重复确认了一次。",
+   "source": "`32-教程-会计11笔业务案例.md`（案例 1）；`30-教程-会计分录入门（借贷方向）.md`",
+   "tutorial": "32-教程-会计11笔业务案例.md"
+  },
+  {
+   "id": "34-003",
+   "type": "mcq",
+   "set": "模拟题 03 · 会计案例与分录",
+   "level": "进阶",
+   "module": "会计",
+   "part": "会计 Accounting（20 题）",
+   "file": "34-模拟题-会计案例与分录-20题.md",
+   "num": 3,
+   "stem_en": "A goods receipt is validated for a purchase whose product category uses automated valuation. Which accounts are hit at that moment?",
+   "stem_zh": "一笔采购的收货单被验证，且该产品类别使用\"自动\"库存计价。这一刻影响哪些科目？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Debit Stock Valuation, credit Stock Interim (Received)",
+     "zh": "借库存计价科目，贷已收未开票暂估。"
+    },
+    {
+     "key": "B",
+     "text": "Debit Stock Valuation, credit Accounts Payable",
+     "zh": "借库存计价科目，贷应付账款。"
+    },
+    {
+     "key": "C",
+     "text": "Debit Expense, credit Accounts Payable",
+     "zh": "借费用，贷应付账款。"
+    },
+    {
+     "key": "D",
+     "text": "No entry is created until the vendor bill is posted",
+     "zh": "不生成分录，要等供应商账单过账才有。"
+    }
+   ],
+   "answer": "A",
+   "explain": "**解析**：货到票未到，用暂估科目过渡：借库存（资产），贷\"已收未开票暂估\"。等账单过账时才把暂估冲掉、转成正式的应付账款。\n**干扰项**：B 跳过了暂估；C 把存货当费用；D 忽略了\"自动计价下收货即产生分录\"。",
+   "source": "`32-教程-会计11笔业务案例.md`（案例 2）",
+   "tutorial": "32-教程-会计11笔业务案例.md"
+  },
+  {
+   "id": "34-004",
+   "type": "mcq",
+   "set": "模拟题 03 · 会计案例与分录",
+   "level": "进阶",
+   "module": "会计",
+   "part": "会计 Accounting（20 题）",
+   "file": "34-模拟题-会计案例与分录-20题.md",
+   "num": 4,
+   "stem_en": "What is the most reliable indicator that some goods were received but never invoiced by the vendor?",
+   "stem_zh": "什么现象最能说明\"有货已收但供应商一直没开票\"？",
+   "options": [
+    {
+     "key": "A",
+     "text": "The Accounts Payable balance is higher than the vendor ledger",
+     "zh": "应付账款余额比供应商往来账高。"
+    },
+    {
+     "key": "B",
+     "text": "The Stock Interim (Received) account has a non-zero balance at period end",
+     "zh": "期末\"已收未开票暂估\"科目余额不为零。"
+    },
+    {
+     "key": "C",
+     "text": "The Inventory account equals the Stock Valuation report",
+     "zh": "库存科目余额与库存计价报表一致。"
+    },
+    {
+     "key": "D",
+     "text": "The Input tax account shows a credit balance",
+     "zh": "进项税科目出现贷方余额。"
+    }
+   ],
+   "answer": "B",
+   "explain": "**解析**：收货产生的暂估在账单到手时应被冲平，所以该科目期末**应为 0**；不为 0 就说明有\"已收未开票\"的业务挂着，正是采购对账要找的东西。\n**干扰项**：A 是方向性的猜测，不构成判据；C 是\"正常\"状态；D 与采购开票无关。",
+   "source": "`32-教程-会计11笔业务案例.md`（案例 2 检查点）",
+   "tutorial": "32-教程-会计11笔业务案例.md"
+  },
+  {
+   "id": "34-005",
+   "type": "mcq",
+   "set": "模拟题 03 · 会计案例与分录",
+   "level": "进阶",
+   "module": "会计",
+   "part": "会计 Accounting（20 题）",
+   "file": "34-模拟题-会计案例与分录-20题.md",
+   "num": 5,
+   "stem_en": "Under the Anglo-Saxon accounting mode (Odoo default), when is Cost of Goods Sold recognised?",
+   "stem_zh": "在盎格鲁-撒克逊式会计下（Odoo 默认），销售成本在什么时候结转？",
+   "options": [
+    {
+     "key": "A",
+     "text": "When the delivery is validated",
+     "zh": "出库单验证时。"
+    },
+    {
+     "key": "B",
+     "text": "When the sales order is confirmed",
+     "zh": "销售订单确认时。"
+    },
+    {
+     "key": "C",
+     "text": "When the invoice is posted",
+     "zh": "发票过账时。"
+    },
+    {
+     "key": "D",
+     "text": "When the customer payment is registered",
+     "zh": "客户付款登记时。"
+    }
+   ],
+   "answer": "C",
+   "explain": "**解析**：发货时货先转\"发出商品\"（Stock Interim Delivered），**开票过账时**才从\"发出商品\"结转到主营业务成本。大陆式则是**发货即**结转。\n**干扰项**：A 描述的是大陆式；B、D 都不是成本结转时点。",
+   "source": "`32-教程-会计11笔业务案例.md`（案例 3）",
+   "tutorial": "32-教程-会计11笔业务案例.md"
+  },
+  {
+   "id": "34-006",
+   "type": "mcq",
+   "set": "模拟题 03 · 会计案例与分录",
+   "level": "进阶",
+   "module": "会计",
+   "part": "会计 Accounting（20 题）",
+   "file": "34-模拟题-会计案例与分录-20题.md",
+   "num": 6,
+   "stem_en": "A 113,000 invoice is paid in two instalments. After the first payment of 50,000, what should the invoice status and the receivable balance be?",
+   "stem_zh": "113,000 的发票分两次收款。收到第一笔 50,000 后，发票状态与应收余额应是什么？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Paid, and the receivable is cleared",
+     "zh": "已付款，应收清零。"
+    },
+    {
+     "key": "B",
+     "text": "Draft, and the receivable is unchanged",
+     "zh": "草稿状态，应收不变。"
+    },
+    {
+     "key": "C",
+     "text": "Paid, but the receivable keeps a 63,000 balance",
+     "zh": "已付款，但应收仍有 63,000 余额。"
+    },
+    {
+     "key": "D",
+     "text": "In Payment / Partial, with 63,000 still open",
+     "zh": "部分付款，剩余 63,000 仍挂在应收。"
+    }
+   ],
+   "answer": "D",
+   "explain": "**解析**：核销按实际到账金额进行，剩余 63,000 留在应收账款上并进入账龄表，状态是\"部分付款\"。\n**干扰项**：A、C 都靠\"状态与余额不一致\"来诱惑；B 混淆了草稿与已过账。",
+   "source": "`32-教程-会计11笔业务案例.md`（案例 4）",
+   "tutorial": "32-教程-会计11笔业务案例.md"
+  },
+  {
+   "id": "34-007",
+   "type": "mcq",
+   "set": "模拟题 03 · 会计案例与分录",
+   "level": "进阶",
+   "module": "会计",
+   "part": "会计 Accounting（20 题）",
+   "file": "34-模拟题-会计案例与分录-20题.md",
+   "num": 7,
+   "stem_en": "A customer pays a 30,000 deposit before any goods are shipped or invoiced. How should this be recorded?",
+   "stem_zh": "货物尚未发出、也未开票，客户先付了 30,000 订金。应如何记录？",
+   "options": [
+    {
+     "key": "A",
+     "text": "As revenue, because the cash has been received",
+     "zh": "记收入，因为钱已经收到。"
+    },
+    {
+     "key": "B",
+     "text": "As a reduction of Accounts Receivable",
+     "zh": "冲减应收账款。"
+    },
+    {
+     "key": "C",
+     "text": "As a liability (customer deposit / contract liability)",
+     "zh": "记负债（预收账款 / 合同负债）。"
+    },
+    {
+     "key": "D",
+     "text": "As an expense prepayment on the customer side only",
+     "zh": "只在客户侧记预付费用。"
+    }
+   ],
+   "answer": "C",
+   "explain": "**解析**：收入只能在履约完成时确认；此时公司还欠客户货（或钱），所以是负债。之后开票时用这笔预收去核销。\n**干扰项**：A 是收付实现制的误解；B 在没有发票时无从冲减；D 说的不是本公司的账。",
+   "source": "`32-教程-会计11笔业务案例.md`（案例 5）",
+   "tutorial": "32-教程-会计11笔业务案例.md"
+  },
+  {
+   "id": "34-008",
+   "type": "mcq",
+   "set": "模拟题 03 · 会计案例与分录",
+   "level": "进阶",
+   "module": "会计",
+   "part": "会计 Accounting（20 题）",
+   "file": "34-模拟题-会计案例与分录-20题.md",
+   "num": 8,
+   "stem_en": "Original price 100,000 with a 10% trade discount, tax 13%. How is the trade discount reflected in the accounting entries?",
+   "stem_zh": "原价 100,000 给 10% 商业折扣、税率 13%，商业折扣在分录上怎么体现？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Revenue is recognised at 90,000",
+     "zh": "收入按 90,000 确认。"
+    },
+    {
+     "key": "B",
+     "text": "Revenue is recognised at 100,000 and a discount expense of 10,000 is booked",
+     "zh": "收入按 100,000 确认，另记 10,000 折扣费用。"
+    },
+    {
+     "key": "C",
+     "text": "Revenue is recognised at 100,000 and the receivable is reduced by 10,000",
+     "zh": "收入按 100,000 确认，应收减少 10,000。"
+    },
+    {
+     "key": "D",
+     "text": "Revenue is recognised at 90,000 and the tax is calculated on 100,000",
+     "zh": "收入按 90,000 确认，但税按 100,000 计算。"
+    }
+   ],
+   "answer": "A",
+   "explain": "**解析**：商业折扣直接降低收入确认金额（净额确认），税也按折后金额算（90,000 × 13% = 11,700）。\n**干扰项**：B 把商业折扣当成费用（那是现金折扣的做法）；C 会让借贷不平；D 把税额算在折前价上。",
+   "source": "`32-教程-会计11笔业务案例.md`（案例 9）",
+   "tutorial": "32-教程-会计11笔业务案例.md"
+  },
+  {
+   "id": "34-009",
+   "type": "mcq",
+   "set": "模拟题 03 · 会计案例与分录",
+   "level": "进阶",
+   "module": "会计",
+   "part": "会计 Accounting（20 题）",
+   "file": "34-模拟题-会计案例与分录-20题.md",
+   "num": 9,
+   "stem_en": "Under terms \"2/10 net 30\", the customer pays within 10 days and takes the 2% discount. Which account absorbs the 2,260 difference?",
+   "stem_zh": "付款条件为 2/10 净 30，客户 10 天内付款并享受 2% 折扣。2,260 的差额进哪个科目？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Sales revenue (as a reduction)",
+     "zh": "冲减主营业务收入。"
+    },
+    {
+     "key": "B",
+     "text": "Cost of goods sold",
+     "zh": "主营业务成本。"
+    },
+    {
+     "key": "C",
+     "text": "Financial expenses",
+     "zh": "财务费用。"
+    },
+    {
+     "key": "D",
+     "text": "A contra-asset account",
+     "zh": "资产备抵科目。"
+    }
+   ],
+   "answer": "C",
+   "explain": "**解析**：现金折扣本质是\"为提前拿到钱付出的代价\"，属融资性质，进财务费用；**不减少收入**（这是与商业折扣的关键区别）。\n**干扰项**：A 是商业折扣的处理；B、D 与该业务无关。",
+   "source": "`32-教程-会计11笔业务案例.md`（案例 9）",
+   "tutorial": "32-教程-会计11笔业务案例.md"
+  },
+  {
+   "id": "34-010",
+   "type": "mcq",
+   "set": "模拟题 03 · 会计案例与分录",
+   "level": "进阶",
+   "module": "会计",
+   "part": "会计 Accounting（20 题）",
+   "file": "34-模拟题-会计案例与分录-20题.md",
+   "num": 10,
+   "stem_en": "Which statement about credit notes is correct?",
+   "stem_zh": "关于贷项通知单（Credit Note），下列说法哪项正确？",
+   "options": [
+    {
+     "key": "A",
+     "text": "A posted invoice can be deleted as long as no payment was received",
+     "zh": "只要没收到款，已过账的发票就可以删除。"
+    },
+    {
+     "key": "B",
+     "text": "A credit note creates a reverse entry that reduces revenue and tax",
+     "zh": "贷项通知单生成反向分录，冲减收入与税金。"
+    },
+    {
+     "key": "C",
+     "text": "A credit note may only be issued before the invoice is posted",
+     "zh": "贷项通知单只能在发票过账前开具。"
+    },
+    {
+     "key": "D",
+     "text": "A credit note affects only the receivable, not revenue",
+     "zh": "贷项通知单只影响应收，不影响收入。"
+    }
+   ],
+   "answer": "B",
+   "explain": "**解析**：退货/开错金额都用贷项通知单红冲：借收入、借销项税，贷应收——收入与税一并冲回。\n**干扰项**：A 破坏凭证序列与审计链（19 里也不允许删已过账分录）；C、D 与红冲的实际效果不符。",
+   "source": "`32-教程-会计11笔业务案例.md`（案例 10）",
+   "tutorial": "32-教程-会计11笔业务案例.md"
+  },
+  {
+   "id": "34-011",
+   "type": "mcq",
+   "set": "模拟题 03 · 会计案例与分录",
+   "level": "进阶",
+   "module": "会计",
+   "part": "会计 Accounting（20 题）",
+   "file": "34-模拟题-会计案例与分录-20题.md",
+   "num": 11,
+   "stem_en": "A USD 10,000 invoice is booked at 7.00 and settled at 7.10. Where does the 1,000 CNY difference go?",
+   "stem_zh": "发票按 7.00 记账、按 7.10 收款，1,000 元差额进哪里？",
+   "options": [
+    {
+     "key": "A",
+     "text": "It is added to revenue",
+     "zh": "追加到收入。"
+    },
+    {
+     "key": "B",
+     "text": "It adjusts the original receivable amount",
+     "zh": "调整原应收金额。"
+    },
+    {
+     "key": "C",
+     "text": "It is booked as an exchange gain/loss",
+     "zh": "记汇兑损益。"
+    },
+    {
+     "key": "D",
+     "text": "It is posted to the suspense account",
+     "zh": "挂暂记科目。"
+    }
+   ],
+   "answer": "C",
+   "explain": "**解析**：外币应收按**开票日汇率**入账后不再调整，实际收款与本位币入账额的差额走**汇兑损益**（这里 1,000 是收益）。期末还会对外币货币性项目做重估。\n**干扰项**：A 会重复确认收入；B 与\"不因汇率变动调整原金额\"的原则冲突；D 暂记科目只用于未确认的过渡金额。",
+   "source": "`32-教程-会计11笔业务案例.md`（案例 11）",
+   "tutorial": "32-教程-会计11笔业务案例.md"
+  },
+  {
+   "id": "34-012",
+   "type": "mcq",
+   "set": "模拟题 03 · 会计案例与分录",
+   "level": "进阶",
+   "module": "会计",
+   "part": "会计 Accounting（20 题）",
+   "file": "34-模拟题-会计案例与分录-20题.md",
+   "num": 12,
+   "stem_en": "Which menu path creates a vendor bill in Odoo 19?",
+   "stem_zh": "Odoo 19 里新建供应商账单的菜单路径是？",
+   "options": [
+    {
+     "key": "A",
+     "text": "`Accounting → Vendors → Bills → New`",
+     "zh": "会计 → 供应商 → 账单 → 新建。"
+    },
+    {
+     "key": "B",
+     "text": "`Accounting → Vendors → Payments → New`",
+     "zh": "会计 → 供应商 → 付款 → 新建。"
+    },
+    {
+     "key": "C",
+     "text": "`Accounting → Configuration → Vendors`",
+     "zh": "会计 → 配置 → 供应商。"
+    },
+    {
+     "key": "D",
+     "text": "`Purchase → Orders → Vendors`",
+     "zh": "采购 → 订单 → 供应商。"
+    }
+   ],
+   "answer": "A",
+   "explain": "**解析**：账单在会计模块的\"供应商 → 账单\"下新建；也可以从采购订单上点 Create Bill 自动带出。B 是付款单据，C 那层没有这个菜单，D 是供应商主数据（联系人）列表。\n**干扰项**：D 是最容易混的——`采购 → 订单 → 供应商` 确实是菜单，但它是联系人列表，不是账单。",
+   "source": "`31-路径核对-第三方资料与Odoo19.md`（会计节）",
+   "tutorial": "31-路径核对-第三方资料与Odoo19.md"
+  },
+  {
+   "id": "34-013",
+   "type": "mcq",
+   "set": "模拟题 03 · 会计案例与分录",
+   "level": "进阶",
+   "module": "会计",
+   "part": "会计 Accounting（20 题）",
+   "file": "34-模拟题-会计案例与分录-20题.md",
+   "num": 13,
+   "stem_en": "Which action turns a quotation into a confirmed sales order on the accounting side?",
+   "stem_zh": "从会计角度看，哪一步动作把报价单变成已确认的销售订单？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Printing the quotation PDF",
+     "zh": "打印报价单 PDF。"
+    },
+    {
+     "key": "B",
+     "text": "Clicking Confirm on the quotation",
+     "zh": "在报价单上点确认。"
+    },
+    {
+     "key": "C",
+     "text": "Registering the customer payment",
+     "zh": "登记客户付款。"
+    },
+    {
+     "key": "D",
+     "text": "Validating the delivery",
+     "zh": "验证交货单。"
+    }
+   ],
+   "answer": "B",
+   "explain": "**解析**：确认（Confirm）把状态从 Quotation/Sent 改为 Sales Order，并触发后续交货/开票的连锁动作。**此时还没有任何分录**——分录要等交货单验证和发票过账。\n**干扰项**：A 不改变单据状态；C、D 发生在更后面的环节。",
+   "source": "`32-教程-会计11笔业务案例.md`（第三节）",
+   "tutorial": "32-教程-会计11笔业务案例.md"
+  },
+  {
+   "id": "34-014",
+   "type": "mcq",
+   "set": "模拟题 03 · 会计案例与分录",
+   "level": "进阶",
+   "module": "会计",
+   "part": "会计 Accounting（20 题）",
+   "file": "34-模拟题-会计案例与分录-20题.md",
+   "num": 14,
+   "stem_en": "Registering a payment from the customer invoice vs. from `Customers → Payments` — what is the practical difference?",
+   "stem_zh": "在发票上登记收款，与从 `会计 → 客户 → 付款` 单独登记一笔付款，实际差别是什么？",
+   "options": [
+    {
+     "key": "A",
+     "text": "No difference, both are automatically matched to the invoice",
+     "zh": "没有差别，两者都会自动核销发票。"
+    },
+    {
+     "key": "B",
+     "text": "The one from the Payments menu posts directly to revenue",
+     "zh": "从付款菜单登记的直接记入收入。"
+    },
+    {
+     "key": "C",
+     "text": "A payment from the invoice cannot be partially reconciled",
+     "zh": "在发票上登记收款不能部分核销。"
+    },
+    {
+     "key": "D",
+     "text": "The one from the Payments menu is only a standalone entry and must be reconciled manually",
+     "zh": "从付款菜单登记的那笔只是孤立分录，必须手工核销。"
+    }
+   ],
+   "answer": "D",
+   "explain": "**解析**：发票上的 Register Payment 会自动关联并核销这张发票；从 Payments 菜单登记的是**孤立分录**，必须再去核销（从日记账项目里与发票配对，或用自动核销）。\n**干扰项**：A 太绝对；C 反了（发票上登记的收款支持部分核销并显示 Partial）；B 付款永远不会记收入。",
+   "source": "`32-教程-会计11笔业务案例.md`（第三节）",
+   "tutorial": "32-教程-会计11笔业务案例.md"
+  },
+  {
+   "id": "34-015",
+   "type": "mcq",
+   "set": "模拟题 03 · 会计案例与分录",
+   "level": "进阶",
+   "module": "会计",
+   "part": "会计 Accounting（20 题）",
+   "file": "34-模拟题-会计案例与分录-20题.md",
+   "num": 15,
+   "stem_en": "What does reconciliation (核销) actually do?",
+   "stem_zh": "\"核销\"到底做了什么？",
+   "options": [
+    {
+     "key": "A",
+     "text": "It deletes the invoice after it is fully paid",
+     "zh": "付清后把发票删除。"
+    },
+    {
+     "key": "B",
+     "text": "It converts the invoice amount into the company currency",
+     "zh": "把发票金额换算成本位币。"
+    },
+    {
+     "key": "C",
+     "text": "It locks the accounting period so entries cannot be changed",
+     "zh": "锁定会计期间，禁止改凭证。"
+    },
+    {
+     "key": "D",
+     "text": "It matches debit and credit entries in the same account so the balance clears",
+     "zh": "把同一科目下的借贷分录两两匹配，使余额清零。"
+    }
+   ],
+   "answer": "D",
+   "explain": "**解析**：核销是在同一账户（如应收账款）下把发票分录与付款分录配对，让该笔往来余额归零，并据此产生汇兑损益等调整。\n**干扰项**：A 违反\"已过账不删除\"；B 是汇率换算；C 是锁定日期（Lock Dates）的功能。",
+   "source": "`30-教程-会计分录入门（借贷方向）.md`；`32-教程-会计11笔业务案例.md`",
+   "tutorial": "30-教程-会计分录入门（借贷方向）.md"
+  },
+  {
+   "id": "34-016",
+   "type": "mcq",
+   "set": "模拟题 03 · 会计案例与分录",
+   "level": "进阶",
+   "module": "会计",
+   "part": "会计 Accounting（20 题）",
+   "file": "34-模拟题-会计案例与分录-20题.md",
+   "num": 16,
+   "stem_en": "The Inventory Loss virtual location is used when recording which operation?",
+   "stem_zh": "记录哪类操作时用到\"库存损失（Inventory Loss）\"虚拟库位？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Shipping goods to a customer",
+     "zh": "把货发给客户。"
+    },
+    {
+     "key": "B",
+     "text": "Receiving goods from a vendor",
+     "zh": "从供应商收货。"
+    },
+    {
+     "key": "C",
+     "text": "Transferring goods between warehouses",
+     "zh": "仓库之间的调拨。"
+    },
+    {
+     "key": "D",
+     "text": "Shrinkage found during a physical inventory",
+     "zh": "盘点发现的盘亏。"
+    }
+   ],
+   "answer": "D",
+   "explain": "**解析**：盘点（`库存 → 作业 → 调整 → 实物库存`）填实际数量后，系统把差异记入 Inventory Loss 虚拟库位，启用自动计价时自动产生分录。\n**干扰项**：A、B、C 都走客户/供应商/内部库位，与损失无关。",
+   "source": "`32-教程-会计11笔业务案例.md`（案例 7）",
+   "tutorial": "32-教程-会计11笔业务案例.md"
+  },
+  {
+   "id": "34-017",
+   "type": "mcq",
+   "set": "模拟题 03 · 会计案例与分录",
+   "level": "进阶",
+   "module": "会计",
+   "part": "会计 Accounting（20 题）",
+   "file": "34-模拟题-会计案例与分录-20题.md",
+   "num": 17,
+   "stem_en": "Which statement about depreciation and period-end closing is correct in Odoo?",
+   "stem_zh": "关于 Odoo 里的折旧与期末结转，下列说法哪项正确？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Both must be booked manually with a journal entry each month",
+     "zh": "两者都要每月手工做分录。"
+    },
+    {
+     "key": "B",
+     "text": "The system generates depreciation entries; profit is carried forward automatically",
+     "zh": "折旧由系统按计划生成，损益结转自动完成。"
+    },
+    {
+     "key": "C",
+     "text": "Depreciation is booked only when the asset is sold",
+     "zh": "只有资产出售时才计提折旧。"
+    },
+    {
+     "key": "D",
+     "text": "Period-end closing requires locking the period first",
+     "zh": "期末结转必须先锁定期间。"
+    }
+   ],
+   "answer": "B",
+   "explain": "**解析**：折旧由 Asset（资产）模型按计划自动生成分录，损益结转在期末自动完成并在报表上体现为未分配利润的变化；手工再做一遍就是重复计账。\n**干扰项**：A、C 与系统的自动机制不符；D 锁定日期是审计手段，不是结转的前提。",
+   "source": "`32-教程-会计11笔业务案例.md`（案例 8）",
+   "tutorial": "32-教程-会计11笔业务案例.md"
+  },
+  {
+   "id": "34-018",
+   "type": "mcq",
+   "set": "模拟题 03 · 会计案例与分录",
+   "level": "进阶",
+   "module": "会计",
+   "part": "会计 Accounting（20 题）",
+   "file": "34-模拟题-会计案例与分录-20题.md",
+   "num": 18,
+   "stem_en": "Where is the default costing method / Anglo-Saxon setting controlled in Odoo 19?",
+   "stem_zh": "Odoo 19 里会计方式（是否盎格鲁-撒克逊式）与成本方法在哪里控制？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Only on the company, never on the product category",
+     "zh": "只能在公司上设，产品类别上不能设。"
+    },
+    {
+     "key": "B",
+     "text": "On each individual product, with no category-level default",
+     "zh": "在单个产品上设，类别级没有默认值。"
+    },
+    {
+     "key": "C",
+     "text": "On the product category (costing method), with company-level defaults in Accounting settings",
+     "zh": "在产品类别上（成本方法），公司级默认在会计设置里。"
+    },
+    {
+     "key": "D",
+     "text": "On the vendor record, because it drives the bill",
+     "zh": "在供应商档案上，因为它决定账单。"
+    }
+   ],
+   "answer": "C",
+   "explain": "**解析**：成本方法（Standard / FIFO / AVCO）与计价方式在产品类别上配置；是否盎格鲁-撒克逊式属公司级会计设置。到岸成本还要求成本方法是 **AVCO 或 FIFO**（标准成本不行）。\n**干扰项**：A、B 把层级说错；D 供应商上只有付款条件/币种之类，不决定成本方法。",
+   "source": "`32-教程-会计11笔业务案例.md`（案例 3）；`03-Inventory.md`",
+   "tutorial": "32-教程-会计11笔业务案例.md"
+  },
+  {
+   "id": "34-019",
+   "type": "mcq",
+   "set": "模拟题 03 · 会计案例与分录",
+   "level": "进阶",
+   "module": "会计",
+   "part": "会计 Accounting（20 题）",
+   "file": "34-模拟题-会计案例与分录-20题.md",
+   "num": 19,
+   "stem_en": "A vendor bill is posted with tax 13% on goods of 80,000. Which side does the input tax go?",
+   "stem_zh": "一张供应商账单过账，货物 80,000、税率 13%。进项税记在哪一方？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Debit side, as it is a receivable-type tax",
+     "zh": "借方——它是可抵扣的资产类税金。"
+    },
+    {
+     "key": "B",
+     "text": "Credit side, because tax is always a liability",
+     "zh": "贷方——税永远是负债。"
+    },
+    {
+     "key": "C",
+     "text": "Debit side only if the goods were already paid",
+     "zh": "只有货已付款时才记借方。"
+    },
+    {
+     "key": "D",
+     "text": "It is merged into the expense amount",
+     "zh": "直接并入费用金额。"
+    }
+   ],
+   "answer": "A",
+   "explain": "**解析**：进项税（Input Tax / Tax Receivable）是可抵扣的资产类项目，记**借方**；销项税（Tax Payable）才是负债，记贷方。\n**干扰项**：B 把销项税的性质套到进项税上；C 与付款无关；D 会少记可抵扣税。",
+   "source": "`30-教程-会计分录入门（借贷方向）.md`（第 86-120 行）",
+   "tutorial": "30-教程-会计分录入门（借贷方向）.md"
+  },
+  {
+   "id": "34-020",
+   "type": "mcq",
+   "set": "模拟题 03 · 会计案例与分录",
+   "level": "进阶",
+   "module": "会计",
+   "part": "会计 Accounting（20 题）",
+   "file": "34-模拟题-会计案例与分录-20题.md",
+   "num": 20,
+   "stem_en": "Which of the following operations does NOT create any accounting entry in Odoo?",
+   "stem_zh": "下列哪项操作在 Odoo 里**不会**产生任何会计分录？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Validating a goods receipt under automated valuation",
+     "zh": "自动计价下验证收货单。"
+    },
+    {
+     "key": "B",
+     "text": "Posting a customer invoice",
+     "zh": "过账客户发票。"
+    },
+    {
+     "key": "C",
+     "text": "Registering a customer payment",
+     "zh": "登记客户收款。"
+    },
+    {
+     "key": "D",
+     "text": "Confirming a sales order",
+     "zh": "确认销售订单。"
+    }
+   ],
+   "answer": "D",
+   "explain": "**解析**：确认销售订单只改变单据状态并触发后续交货/开票，**不产生分录**；分录出现在收货（自动计价）、发票过账、以及收款/核销这些环节。\n**干扰项**：A、B、C 都会生成分录（C 在核销时还可能产生汇兑损益）。",
+   "source": "`32-教程-会计11笔业务案例.md`（第三节）；`30-教程-会计分录入门（借贷方向）.md`",
+   "tutorial": "32-教程-会计11笔业务案例.md"
   }
  ],
  "short": [
@@ -5189,7 +5949,7 @@
    "tutorial": "01-Accounting.md"
   },
   {
-   "id": "23-s001",
+   "id": "23-s001-2",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5207,7 +5967,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "23-s002",
+   "id": "23-s002-2",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5226,7 +5986,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "23-s003",
+   "id": "23-s003-2",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5244,7 +6004,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "23-s004",
+   "id": "23-s004-2",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5263,7 +6023,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "23-s005",
+   "id": "23-s005-2",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5281,7 +6041,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "23-s006",
+   "id": "23-s006-2",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5300,7 +6060,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "23-s007",
+   "id": "23-s007-2",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5312,14 +6072,14 @@
    "points": [
     "把常用产品组合与条款做成模板，新建报价时直接选用，避免每次从零开始。",
     "启用：`Sales → Configuration → Settings → Quotations & Orders` 勾 `Quotation Templates`（随后出现 `Default Template` 字段）。",
-    "维护：`Sales → Configuration → Quotation Templates`（含 `Lines` 与 `Terms & Conditions` 页签）。"
+    "维护：`Sales → Configuration → Sales Orders → Quotation Templates`（含 `Lines` 与 `Terms & Conditions` 页签）。"
    ],
-   "detail": "- 把常用产品组合与条款做成模板，新建报价时直接选用，避免每次从零开始。\n- 启用：`Sales → Configuration → Settings → Quotations & Orders` 勾 `Quotation Templates`（随后出现 `Default Template` 字段）。\n- 维护：`Sales → Configuration → Quotation Templates`（含 `Lines` 与 `Terms & Conditions` 页签）。\n\n> 出处：官方 `sales/sales_quotations/quote_template`",
+   "detail": "- 把常用产品组合与条款做成模板，新建报价时直接选用，避免每次从零开始。\n- 启用：`Sales → Configuration → Settings → Quotations & Orders` 勾 `Quotation Templates`（随后出现 `Default Template` 字段）。\n- 维护：`Sales → Configuration → Sales Orders → Quotation Templates`（含 `Lines` 与 `Terms & Conditions` 页签）。\n\n> 出处：官方 `sales/sales_quotations/quote_template`",
    "source": "官方 `sales/sales_quotations/quote_template`",
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "23-s008",
+   "id": "23-s008-2",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5339,7 +6099,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "23-s009",
+   "id": "23-s009-2",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5357,7 +6117,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "23-s010",
+   "id": "23-s010-2",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5375,7 +6135,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "23-s001",
+   "id": "23-s001-3",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5393,7 +6153,7 @@
    "tutorial": "07-CRM.md"
   },
   {
-   "id": "23-s002",
+   "id": "23-s002-3",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5411,7 +6171,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "23-s003",
+   "id": "23-s003-3",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5429,7 +6189,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "23-s004",
+   "id": "23-s004-3",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5447,7 +6207,7 @@
    "tutorial": "07-CRM.md"
   },
   {
-   "id": "23-s005",
+   "id": "23-s005-3",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5466,7 +6226,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "23-s006",
+   "id": "23-s006-3",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5484,7 +6244,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "23-s007",
+   "id": "23-s007-3",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5503,7 +6263,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "23-s008",
+   "id": "23-s008-3",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5521,7 +6281,7 @@
    "tutorial": "07-CRM.md"
   },
   {
-   "id": "23-s009",
+   "id": "23-s009-3",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5538,7 +6298,7 @@
    "tutorial": "05-Sales.md"
   },
   {
-   "id": "23-s010",
+   "id": "23-s010-3",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5556,7 +6316,7 @@
    "tutorial": "07-CRM.md"
   },
   {
-   "id": "23-s001",
+   "id": "23-s001-4",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5576,7 +6336,7 @@
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "23-s002",
+   "id": "23-s002-4",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5594,7 +6354,7 @@
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "23-s003",
+   "id": "23-s003-4",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5614,7 +6374,7 @@
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "23-s004",
+   "id": "23-s004-4",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5633,7 +6393,7 @@
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "23-s005",
+   "id": "23-s005-4",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5644,15 +6404,15 @@
    "stem_en": "",
    "points": [
     "把运费、关税等**附加费用摊到收到的货上**，抬高入库成本（可按金额/数量/重量分摊）。",
-    "功能**默认关闭**：先到 `Inventory → Configuration → Settings` 的 `Valuation` 板块勾 `Landed Costs`，之后才会出现 `Inventory → Operations → Landed Costs` 菜单。",
+    "功能**默认关闭**：先到 `Inventory → Configuration → Settings` 的 `Valuation` 板块勾 `Landed Costs`，之后才会出现 `Inventory → Operations → Adjustments → Landed Costs` 菜单。",
     "实操上还要有**到岸成本产品**，并在供应商账单上应用。"
    ],
-   "detail": "- 把运费、关税等**附加费用摊到收到的货上**，抬高入库成本（可按金额/数量/重量分摊）。\n- 功能**默认关闭**：先到 `Inventory → Configuration → Settings` 的 `Valuation` 板块勾 `Landed Costs`，之后才会出现 `Inventory → Operations → Landed Costs` 菜单。\n- 实操上还要有**到岸成本产品**，并在供应商账单上应用。\n\n> 出处：官方 `inventory/inventory_valuation/landed_costs`",
+   "detail": "- 把运费、关税等**附加费用摊到收到的货上**，抬高入库成本（可按金额/数量/重量分摊）。\n- 功能**默认关闭**：先到 `Inventory → Configuration → Settings` 的 `Valuation` 板块勾 `Landed Costs`，之后才会出现 `Inventory → Operations → Adjustments → Landed Costs` 菜单。\n- 实操上还要有**到岸成本产品**，并在供应商账单上应用。\n\n> 出处：官方 `inventory/inventory_valuation/landed_costs`",
    "source": "官方 `inventory/inventory_valuation/landed_costs`",
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "23-s006",
+   "id": "23-s006-4",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5672,7 +6432,7 @@
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "23-s007",
+   "id": "23-s007-4",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5682,15 +6442,15 @@
    "stem_zh": "盘点/库存调整在哪做？它和库存估值是什么关系？",
    "stem_en": "",
    "points": [
-    "`Inventory → Operations → Physical Inventory`，逐行填 `Counted Quantity`（也可 New 新建调整行）。",
+    "`Inventory → Operations → Adjustments → Physical Inventory`，逐行填 `Counted Quantity`（也可 New 新建调整行）。",
     "差异会生成库存移动调整，按当时的单位成本进出，因此**直接改变库存估值**；也可以在这一步给调整指定批次/序列号。"
    ],
-   "detail": "- `Inventory → Operations → Physical Inventory`，逐行填 `Counted Quantity`（也可 New 新建调整行）。\n- 差异会生成库存移动调整，按当时的单位成本进出，因此**直接改变库存估值**；也可以在这一步给调整指定批次/序列号。\n\n> 出处：官方 `inventory/warehouses_storage/inventory_management/count_products`、`inventory_valuation/valuation_by_lots`",
+   "detail": "- `Inventory → Operations → Adjustments → Physical Inventory`，逐行填 `Counted Quantity`（也可 New 新建调整行）。\n- 差异会生成库存移动调整，按当时的单位成本进出，因此**直接改变库存估值**；也可以在这一步给调整指定批次/序列号。\n\n> 出处：官方 `inventory/warehouses_storage/inventory_management/count_products`、`inventory_valuation/valuation_by_lots`",
    "source": "官方 `inventory/warehouses_storage/inventory_management/count_products`、`inventory_valuation/valuation_by_lots`",
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "23-s008",
+   "id": "23-s008-4",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5708,7 +6468,7 @@
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "23-s009",
+   "id": "23-s009-4",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5726,7 +6486,7 @@
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "23-s010",
+   "id": "23-s010-4",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5745,7 +6505,7 @@
    "tutorial": "03-Inventory.md"
   },
   {
-   "id": "23-s001",
+   "id": "23-s001-5",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5764,7 +6524,7 @@
    "tutorial": "00-业务全景串讲.md"
   },
   {
-   "id": "23-s002",
+   "id": "23-s002-5",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5782,7 +6542,7 @@
    "tutorial": "00-业务全景串讲.md"
   },
   {
-   "id": "23-s003",
+   "id": "23-s003-5",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5801,7 +6561,7 @@
    "tutorial": "00-业务全景串讲.md"
   },
   {
-   "id": "23-s004",
+   "id": "23-s004-5",
    "type": "short",
    "set": "简答题",
    "level": "复述",
@@ -5811,13 +6571,13 @@
    "stem_zh": "跨 4. 进口货物产生了运费与关税，怎么把它算进这批货的成本？对会计有什么影响？",
    "stem_en": "",
    "points": [
-    "用**到岸成本（Landed Costs）**：先开 `Inventory → Configuration → Settings → Valuation → Landed Costs`，再在 `Operations → Landed Costs` 里把费用按金额/数量/重量摊到收货上。",
+    "用**到岸成本（Landed Costs）**：先开 `Inventory → Configuration → Settings → Valuation → Landed Costs`，再在 `Operations → Adjustments → Landed Costs` 里把费用按金额/数量/重量摊到收货上。",
     "前提：产品类别成本方法必须是 **AVCO 或 FIFO**。",
     "会计影响：库存资产价值被抬高，后续出库时的销售成本（COGS）同步变大；相关分录可在 `Accounting → Accounting → Journal Entries` 查看。",
     "题号与答案为本仓库自拟，**不是官方真题**；Odoo 官方从不公开考试真题。",
     "所有菜单路径与机制均来自 Odoo 19.0 官方文档原文；个别结论（如多级 BoM 提前期取最长）属教程归纳，未在本文件作为得分点。"
    ],
-   "detail": "- 用**到岸成本（Landed Costs）**：先开 `Inventory → Configuration → Settings → Valuation → Landed Costs`，再在 `Operations → Landed Costs` 里把费用按金额/数量/重量摊到收货上。\n- 前提：产品类别成本方法必须是 **AVCO 或 FIFO**。\n- 会计影响：库存资产价值被抬高，后续出库时的销售成本（COGS）同步变大；相关分录可在 `Accounting → Accounting → Journal Entries` 查看。\n\n> 出处：官方 `inventory/inventory_valuation/landed_costs`；`03-Inventory.md`\n\n---\n\n**说明**\n- 题号与答案为本仓库自拟，**不是官方真题**；Odoo 官方从不公开考试真题。\n- 所有菜单路径与机制均来自 Odoo 19.0 官方文档原文；个别结论（如多级 BoM 提前期取最长）属教程归纳，未在本文件作为得分点。",
+   "detail": "- 用**到岸成本（Landed Costs）**：先开 `Inventory → Configuration → Settings → Valuation → Landed Costs`，再在 `Operations → Adjustments → Landed Costs` 里把费用按金额/数量/重量摊到收货上。\n- 前提：产品类别成本方法必须是 **AVCO 或 FIFO**。\n- 会计影响：库存资产价值被抬高，后续出库时的销售成本（COGS）同步变大；相关分录可在 `Accounting → Accounting → Journal Entries` 查看。\n\n> 出处：官方 `inventory/inventory_valuation/landed_costs`；`03-Inventory.md`\n\n---\n\n**说明**\n- 题号与答案为本仓库自拟，**不是官方真题**；Odoo 官方从不公开考试真题。\n- 所有菜单路径与机制均来自 Odoo 19.0 官方文档原文；个别结论（如多级 BoM 提前期取最长）属教程归纳，未在本文件作为得分点。",
    "source": "官方 `inventory/inventory_valuation/landed_costs`；`03-Inventory.md`",
    "tutorial": "03-Inventory.md"
   },
@@ -6219,6 +6979,249 @@
    "detail": "- 因为该模式的定义就是：**里程碑被标记为 Reached 时更新订单行的交付数量**，于是\"交付数量\"代表已完成阶段的进度，可以直接按它开票。\n\n> 出处：官方 `sales/sales_invoicing/milestone`\n\n---\n\n## 附：待核实清单（不要背）\n\n以下是你截图里出现过、但我在本地官方文档中**没有找到依据**的点，我不写答案以免误导：\n\n1. **顶栏能放哪些记录类型、哪些不能放**——官方 Top bar 章节只说明\"按项目自定义、用滑杆按钮配置\"，没有给出允许/禁止的类型清单。\n2. **Grid 视图里和\"周末\"有关的开关**——官方 Timesheets 章节只写了期间切换、颜色含义与建议条目，未提到周末开关。\n3. **盈利性报表三个列的第三列名称**——文档提到 Expected / To invoice（To bill），第三列文字在抓取内容中被截断。\n4. **项目 Visibility 的完整选项列表**——只核对到 `Invited internal users (private)`。\n\n要拿到这些，两条路：① 我联网抓对应官方页面的完整原文再核对；② 你在试用库里点一下确认（更权威，因为能验证实际菜单文案）。\n\n---\n\n**说明**：本文件题目为按 Odoo 19.0 官方文档**新拟**，不是任何付费课程题库的复制；欢迎用它自测，但请注意它不是官方真题。",
    "source": "官方 `sales/sales_invoicing/milestone`",
    "tutorial": "05-Sales.md"
+  },
+  {
+   "id": "35-s001",
+   "type": "short",
+   "set": "简答题 · 会计案例/权限",
+   "level": "复述",
+   "module": "会计",
+   "part": "会计 案例",
+   "file": "35-简答题-会计案例与权限-12题.md",
+   "stem_zh": "客户发票从创建到收款核销，三步各自的分录是什么？收入在哪一步确认？",
+   "stem_en": "",
+   "points": [
+    "创建=草稿，**不产生分录**；只有**过账（Post）**才生成分录。",
+    "① 过账：借 应收账款（资产）／贷 主营业务收入（收入）+ 贷 销项税（负债）。",
+    "② 收款：借 银行存款（资产）／贷 应收账款（资产）。",
+    "③ 核销：把收款与发票在同一科目下对冲，**不产生新科目**，状态变 Paid。",
+    "**收入在过账那一刻确认**（权责发生制），与何时收款无关。",
+    "部分收款时状态是 **In Payment / Partial**，余额继续挂在应收并进账龄表。"
+   ],
+   "detail": "- 创建=草稿，**不产生分录**；只有**过账（Post）**才生成分录。\n- ① 过账：借 应收账款（资产）／贷 主营业务收入（收入）+ 贷 销项税（负债）。\n- ② 收款：借 银行存款（资产）／贷 应收账款（资产）。\n- ③ 核销：把收款与发票在同一科目下对冲，**不产生新科目**，状态变 Paid。\n- **收入在过账那一刻确认**（权责发生制），与何时收款无关。\n- 部分收款时状态是 **In Payment / Partial**，余额继续挂在应收并进账龄表。\n\n> 出处：`32-教程-会计11笔业务案例.md`（案例 1、4）",
+   "source": "`32-教程-会计11笔业务案例.md`（案例 1、4）",
+   "tutorial": "32-教程-会计11笔业务案例.md"
+  },
+  {
+   "id": "35-s002",
+   "type": "short",
+   "set": "简答题 · 会计案例/权限",
+   "level": "复述",
+   "module": "会计",
+   "part": "会计 案例",
+   "file": "35-简答题-会计案例与权限-12题.md",
+   "stem_zh": "采购收货→账单→付款，为什么必然要经过\"暂估\"？暂估科目余额不为 0 说明什么？",
+   "stem_en": "",
+   "points": [
+    "货到票未到：货已是资产，但欠款尚未正式确认，所以要借 库存／贷 已收未开票暂估（Stock Interim Received）。",
+    "账单过账时冲掉暂估，按 借 库存+进项税／贷 应付账款 入账——**这就是\"暂估入账\"**。",
+    "前提：产品类别的库存计价为**自动（Automated）**，否则收货不产生分录。",
+    "**暂估科目期末余额应为 0**；不为 0 就说明有\"已收货未开票\"的业务，是采购对账与三单匹配要找的对象。"
+   ],
+   "detail": "- 货到票未到：货已是资产，但欠款尚未正式确认，所以要借 库存／贷 已收未开票暂估（Stock Interim Received）。\n- 账单过账时冲掉暂估，按 借 库存+进项税／贷 应付账款 入账——**这就是\"暂估入账\"**。\n- 前提：产品类别的库存计价为**自动（Automated）**，否则收货不产生分录。\n- **暂估科目期末余额应为 0**；不为 0 就说明有\"已收货未开票\"的业务，是采购对账与三单匹配要找的对象。\n\n> 出处：`32-教程-会计11笔业务案例.md`（案例 2）",
+   "source": "`32-教程-会计11笔业务案例.md`（案例 2）",
+   "tutorial": "32-教程-会计11笔业务案例.md"
+  },
+  {
+   "id": "35-s003",
+   "type": "short",
+   "set": "简答题 · 会计案例/权限",
+   "level": "复述",
+   "module": "会计",
+   "part": "会计 案例",
+   "file": "35-简答题-会计案例与权限-12题.md",
+   "stem_zh": "销售成本在盎格鲁-撒克逊式与大陆式下的结转时点分别是什么？这个设置在哪里？",
+   "stem_en": "",
+   "points": [
+    "**盎格鲁-撒克逊式（Odoo 默认）**：发货先记\"发出商品（Stock Interim Delivered）\"，**开票过账时**才转主营业务成本。",
+    "**大陆式**：**发货即**结转成本（借 成本／贷 库存）。",
+    "配置位置：**产品类别**上的会计方式（Anglo-Saxon Accounting），成本方法（Standard/FIFO/AVCO）也在产品类别上；公司级默认在会计设置里。",
+    "两步都**由系统自动生成**，手工再做就是重复计账。"
+   ],
+   "detail": "- **盎格鲁-撒克逊式（Odoo 默认）**：发货先记\"发出商品（Stock Interim Delivered）\"，**开票过账时**才转主营业务成本。\n- **大陆式**：**发货即**结转成本（借 成本／贷 库存）。\n- 配置位置：**产品类别**上的会计方式（Anglo-Saxon Accounting），成本方法（Standard/FIFO/AVCO）也在产品类别上；公司级默认在会计设置里。\n- 两步都**由系统自动生成**，手工再做就是重复计账。\n\n> 出处：`32-教程-会计11笔业务案例.md`（案例 3）",
+   "source": "`32-教程-会计11笔业务案例.md`（案例 3）",
+   "tutorial": "32-教程-会计11笔业务案例.md"
+  },
+  {
+   "id": "35-s004",
+   "type": "short",
+   "set": "简答题 · 会计案例/权限",
+   "level": "复述",
+   "module": "会计",
+   "part": "会计 案例",
+   "file": "35-简答题-会计案例与权限-12题.md",
+   "stem_zh": "商业折扣与现金折扣的会计处理差别是什么？",
+   "stem_en": "",
+   "points": [
+    "商业折扣（价格折让）：**直接降低收入**，按折后金额确认收入，税也按折后金额算。",
+    "现金折扣（提前付款优惠）：**不减少收入**，差额进**财务费用**（融资性质）。",
+    "Odoo 实现：商业折扣用订单/发票行的「Discount %」；现金折扣靠**付款条件（Payment Terms）**+ 收款时按条件计价。"
+   ],
+   "detail": "- 商业折扣（价格折让）：**直接降低收入**，按折后金额确认收入，税也按折后金额算。\n- 现金折扣（提前付款优惠）：**不减少收入**，差额进**财务费用**（融资性质）。\n- Odoo 实现：商业折扣用订单/发票行的「Discount %」；现金折扣靠**付款条件（Payment Terms）**+ 收款时按条件计价。\n\n> 出处：`32-教程-会计11笔业务案例.md`（案例 9）",
+   "source": "`32-教程-会计11笔业务案例.md`（案例 9）",
+   "tutorial": "32-教程-会计11笔业务案例.md"
+  },
+  {
+   "id": "35-s005",
+   "type": "short",
+   "set": "简答题 · 会计案例/权限",
+   "level": "复述",
+   "module": "会计",
+   "part": "会计 案例",
+   "file": "35-简答题-会计案例与权限-12题.md",
+   "stem_zh": "客户预收订金、供应商预付款，各记什么科目？为什么预收不能确认收入？",
+   "stem_en": "",
+   "points": [
+    "客户预收：借 银行存款／贷 **预收账款（合同负债，负债）**；开票时用该预收去核销，冲减应收。",
+    "供应商预付：借 **预付账款（资产）**／贷 银行存款；收到账单时转入应付。",
+    "收入只能在**履约完成**时确认（货未发、票未开 → 只是负债）。"
+   ],
+   "detail": "- 客户预收：借 银行存款／贷 **预收账款（合同负债，负债）**；开票时用该预收去核销，冲减应收。\n- 供应商预付：借 **预付账款（资产）**／贷 银行存款；收到账单时转入应付。\n- 收入只能在**履约完成**时确认（货未发、票未开 → 只是负债）。\n\n> 出处：`32-教程-会计11笔业务案例.md`（案例 5）",
+   "source": "`32-教程-会计11笔业务案例.md`（案例 5）",
+   "tutorial": "32-教程-会计11笔业务案例.md"
+  },
+  {
+   "id": "35-s006",
+   "type": "short",
+   "set": "简答题 · 会计案例/权限",
+   "level": "复述",
+   "module": "会计",
+   "part": "会计 案例",
+   "file": "35-简答题-会计案例与权限-12题.md",
+   "stem_zh": "已过账的发票发现开错，应该怎么处理？为什么不能删？",
+   "stem_en": "",
+   "points": [
+    "用**贷项通知单（Credit Note）**红冲：借 收入、借 销项税／贷 应收账款；需要的话再重开正确发票。",
+    "库存侧同步生成退货收货单/出库单。",
+    "**不能删除已过账凭证**：会破坏凭证编号序列与审计链（Odoo 19 也不允许删除已过账分录）。",
+    "税局侧（如意大利）贷项通知单同样是法定单据类型（如 TD04）。"
+   ],
+   "detail": "- 用**贷项通知单（Credit Note）**红冲：借 收入、借 销项税／贷 应收账款；需要的话再重开正确发票。\n- 库存侧同步生成退货收货单/出库单。\n- **不能删除已过账凭证**：会破坏凭证编号序列与审计链（Odoo 19 也不允许删除已过账分录）。\n- 税局侧（如意大利）贷项通知单同样是法定单据类型（如 TD04）。\n\n> 出处：`32-教程-会计11笔业务案例.md`（案例 10）；`22-意大利本地化-会计.md`",
+   "source": "`32-教程-会计11笔业务案例.md`（案例 10）；`22-意大利本地化-会计.md`",
+   "tutorial": "32-教程-会计11笔业务案例.md"
+  },
+  {
+   "id": "35-s007",
+   "type": "short",
+   "set": "简答题 · 会计案例/权限",
+   "level": "复述",
+   "module": "会计",
+   "part": "会计 案例",
+   "file": "35-简答题-会计案例与权限-12题.md",
+   "stem_zh": "外币发票按开票日汇率入账，收款汇率不同，差额记哪里？期末还要做什么？",
+   "stem_en": "",
+   "points": [
+    "收入与应收按**开票日汇率**入账，之后**不因汇率变动调整原金额**。",
+    "实际收款与本位币入账额的差额，记 **汇兑损益（Exchange Gain/Loss）**；收益记贷方、损失记借方。",
+    "期末对外币货币性项目（外币应收/应付/存款）做**货币重估（Currency Adjustment）**，自动生成调整分录。",
+    "汇率维护：`会计 → 配置 → 会计 → 币种 → 汇率`。"
+   ],
+   "detail": "- 收入与应收按**开票日汇率**入账，之后**不因汇率变动调整原金额**。\n- 实际收款与本位币入账额的差额，记 **汇兑损益（Exchange Gain/Loss）**；收益记贷方、损失记借方。\n- 期末对外币货币性项目（外币应收/应付/存款）做**货币重估（Currency Adjustment）**，自动生成调整分录。\n- 汇率维护：`会计 → 配置 → 会计 → 币种 → 汇率`。\n\n> 出处：`32-教程-会计11笔业务案例.md`（案例 11）",
+   "source": "`32-教程-会计11笔业务案例.md`（案例 11）",
+   "tutorial": "32-教程-会计11笔业务案例.md"
+  },
+  {
+   "id": "35-s008",
+   "type": "short",
+   "set": "简答题 · 会计案例/权限",
+   "level": "复述",
+   "module": "会计",
+   "part": "会计 案例",
+   "file": "35-简答题-会计案例与权限-12题.md",
+   "stem_zh": "盘点盘亏在 Odoo 里怎么走？分录方向如何？为什么不能直接在会计里调库存科目？",
+   "stem_en": "",
+   "points": [
+    "路径：`库存 → 作业 → 调整 → 实物库存`（Physical Inventory），填实际数量后 Apply。",
+    "差异进 **Inventory Loss（库存损失）虚拟库位**；启用自动计价时自动生成分录：借 损失/管理费用／贷 库存商品。",
+    "库存数量**只能由库存模块改**，直接调会计的库存科目会让**账实永久性不符**。"
+   ],
+   "detail": "- 路径：`库存 → 作业 → 调整 → 实物库存`（Physical Inventory），填实际数量后 Apply。\n- 差异进 **Inventory Loss（库存损失）虚拟库位**；启用自动计价时自动生成分录：借 损失/管理费用／贷 库存商品。\n- 库存数量**只能由库存模块改**，直接调会计的库存科目会让**账实永久性不符**。\n\n> 出处：`32-教程-会计11笔业务案例.md`（案例 7）；`03-Inventory.md`\n\n---\n\n## 二、权限（4 题）",
+   "source": "`32-教程-会计11笔业务案例.md`（案例 7）；`03-Inventory.md`",
+   "tutorial": "32-教程-会计11笔业务案例.md"
+  },
+  {
+   "id": "35-s009",
+   "type": "short",
+   "set": "简答题 · 会计案例/权限",
+   "level": "复述",
+   "module": "通用",
+   "part": "权限",
+   "file": "35-简答题-会计案例与权限-12题.md",
+   "stem_zh": "用户、群组、访问权限、记录规则四者是什么关系？分别控制什么？",
+   "stem_en": "",
+   "points": [
+    "群组（`res.groups`）是**权限的最小单位**；用户通过加入群组获得权限。",
+    "**访问权限（`ir.model.access`）**：群组 × 模型 的 CRUD——决定**能不能操作某类数据**。",
+    "**记录规则（`ir.rule`）**：群组 × 模型 的 **domain**——决定**能看这张表里的哪几行**（行级过滤）。",
+    "菜单可见性与字段显示也挂在群组上（字段级群组 / 菜单 `groups`）。",
+    "判断顺序：先看用户属于哪些群组 → 再看该群组对模型有无访问权限 → 再看有无记录规则。",
+    "「看不到菜单」「看不到别人的单据」「点开就报错」是**三类不同**的问题，排查路径不同。"
+   ],
+   "detail": "- 群组（`res.groups`）是**权限的最小单位**；用户通过加入群组获得权限。\n- **访问权限（`ir.model.access`）**：群组 × 模型 的 CRUD——决定**能不能操作某类数据**。\n- **记录规则（`ir.rule`）**：群组 × 模型 的 **domain**——决定**能看这张表里的哪几行**（行级过滤）。\n- 菜单可见性与字段显示也挂在群组上（字段级群组 / 菜单 `groups`）。\n- 判断顺序：先看用户属于哪些群组 → 再看该群组对模型有无访问权限 → 再看有无记录规则。\n- 「看不到菜单」「看不到别人的单据」「点开就报错」是**三类不同**的问题，排查路径不同。\n\n> 出处：`33-教程-权限配置与排查手册.md`",
+   "source": "`33-教程-权限配置与排查手册.md`",
+   "tutorial": "33-教程-权限配置与排查手册.md"
+  },
+  {
+   "id": "35-s010",
+   "type": "short",
+   "set": "简答题 · 会计案例/权限",
+   "level": "复述",
+   "module": "销售",
+   "part": "权限",
+   "file": "35-简答题-会计案例与权限-12题.md",
+   "stem_zh": "新建一个销售员，要求只能查看和操作自己的销售订单，请写出关键配置步骤。",
+   "stem_en": "",
+   "points": [
+    "`设置 → 用户和公司 → 用户` → 新建，用户类型选 **Internal User**。",
+    "访问权限页签把 Sales 设为 **`用户: 仅自己的单据`（User: Own Documents Only）**。",
+    "**不要**再给 `用户: 所有单据` 或 `管理员`——会把行级限制放开。",
+    "设置**默认销售团队/销售员**，让单据自动带 `user_id`。",
+    "用该账号登录验证：能进销售菜单、只能看到自己的与未分配的订单、看不到配置菜单。",
+    "底层机制：群组 `sales_team.group_sale_salesman` + 记录规则 domain `['|',('user_id','=',user.id),('user_id','=',False)]`。"
+   ],
+   "detail": "- `设置 → 用户和公司 → 用户` → 新建，用户类型选 **Internal User**。\n- 访问权限页签把 Sales 设为 **`用户: 仅自己的单据`（User: Own Documents Only）**。\n- **不要**再给 `用户: 所有单据` 或 `管理员`——会把行级限制放开。\n- 设置**默认销售团队/销售员**，让单据自动带 `user_id`。\n- 用该账号登录验证：能进销售菜单、只能看到自己的与未分配的订单、看不到配置菜单。\n- 底层机制：群组 `sales_team.group_sale_salesman` + 记录规则 domain `['|',('user_id','=',user.id),('user_id','=',False)]`。\n\n> 出处：`33-教程-权限配置与排查手册.md`；`addons/sale/security/ir_rules.xml`",
+   "source": "`33-教程-权限配置与排查手册.md`；`addons/sale/security/ir_rules.xml`",
+   "tutorial": "33-教程-权限配置与排查手册.md"
+  },
+  {
+   "id": "35-s011",
+   "type": "short",
+   "set": "简答题 · 会计案例/权限",
+   "level": "复述",
+   "module": "销售",
+   "part": "权限",
+   "file": "35-简答题-会计案例与权限-12题.md",
+   "stem_zh": "销售模块的三个角色群组分别是什么？为什么\"多给一个群组\"会让权限变宽？",
+   "stem_en": "",
+   "points": [
+    "`用户: 仅自己的单据`（User: Own Documents Only）→ 只看自己的；`用户: 所有单据`（User: All Documents）→ 看全部；`管理员`（Administrator）→ 看全部 + 配置 + 报表。",
+    "三者是 **implied_ids 链**：后者隐含前者。",
+    "\"所有单据\"的记录规则 domain 是 **`[(1,'=',1)]`（恒真）**；同一用户属于多个群组时规则**取并集**，一旦命中恒真规则就不再受限。",
+    "所以排查\"权限过大\"的第一动作是：先看这个人**被加了哪些群组**，再移除多余的那个。"
+   ],
+   "detail": "- `用户: 仅自己的单据`（User: Own Documents Only）→ 只看自己的；`用户: 所有单据`（User: All Documents）→ 看全部；`管理员`（Administrator）→ 看全部 + 配置 + 报表。\n- 三者是 **implied_ids 链**：后者隐含前者。\n- \"所有单据\"的记录规则 domain 是 **`[(1,'=',1)]`（恒真）**；同一用户属于多个群组时规则**取并集**，一旦命中恒真规则就不再受限。\n- 所以排查\"权限过大\"的第一动作是：先看这个人**被加了哪些群组**，再移除多余的那个。\n\n> 出处：`33-教程-权限配置与排查手册.md`；`addons/sales_team/security/sales_team_security.xml`",
+   "source": "`33-教程-权限配置与排查手册.md`；`addons/sales_team/security/sales_team_security.xml`",
+   "tutorial": "33-教程-权限配置与排查手册.md"
+  },
+  {
+   "id": "35-s012",
+   "type": "short",
+   "set": "简答题 · 会计案例/权限",
+   "level": "复述",
+   "module": "CRM",
+   "part": "权限",
+   "file": "35-简答题-会计案例与权限-12题.md",
+   "stem_zh": "门户用户（Portal）能看什么？为什么 CRM 的「阶段」菜单在普通界面里看不到？",
+   "stem_en": "",
+   "points": [
+    "Portal 用户没有后台菜单，只能通过网页看**自己公司**的单据；规则是 `[('partner_id','child_of',[user.commercial_partner_id.id])]`。",
+    "CRM 的 `配置 → 渠道 → 阶段` 菜单带 `groups=\"base.group_no_one\"`（Technical Features）。",
+    "`ir_ui_menu.py` 的 `_visible_menu_ids(debug)` 在**非开发者模式**下会把 `base.group_no_one` 从可见组中剔除 → 该菜单不显示。",
+    "所以要维护阶段：**打开开发者模式**再看 `CRM → 配置 → 渠道 → 阶段`。"
+   ],
+   "detail": "- Portal 用户没有后台菜单，只能通过网页看**自己公司**的单据；规则是 `[('partner_id','child_of',[user.commercial_partner_id.id])]`。\n- CRM 的 `配置 → 渠道 → 阶段` 菜单带 `groups=\"base.group_no_one\"`（Technical Features）。\n- `ir_ui_menu.py` 的 `_visible_menu_ids(debug)` 在**非开发者模式**下会把 `base.group_no_one` 从可见组中剔除 → 该菜单不显示。\n- 所以要维护阶段：**打开开发者模式**再看 `CRM → 配置 → 渠道 → 阶段`。\n\n> 出处：`33-教程-权限配置与排查手册.md`；`31-路径核对-第三方资料与Odoo19.md`；`odoo/addons/base/models/ir_ui_menu.py:74-79`",
+   "source": "`33-教程-权限配置与排查手册.md`；`31-路径核对-第三方资料与Odoo19.md`；`odoo/addons/base/models/ir_ui_menu.py:74-79`",
+   "tutorial": "33-教程-权限配置与排查手册.md"
   }
  ]
 }

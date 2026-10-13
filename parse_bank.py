@@ -10,10 +10,12 @@ MCQ_FILES = [
     ("20-模拟题-MRP+Sales+Purchase.md", "模拟题 02 · 制造+销售+采购", "基础"),
     ("26-硬题版-会计-20题.md", "硬题版 · 会计", "进阶"),
     ("27-硬题版-库存-20题.md", "硬题版 · 库存", "进阶"),
+    ("34-模拟题-会计案例与分录-20题.md", "模拟题 03 · 会计案例与分录", "进阶"),
 ]
 SHORT_FILES = [
     ("23-简答题-会计+销售+CRM+库存.md", "简答题", "复述"),
     ("24-针对性题目-项目+工时+服务计费.md", "针对性 · 项目/工时/服务计费", "复述"),
+    ("35-简答题-会计案例与权限-12题.md", "简答题 · 会计案例/权限", "复述"),
 ]
 
 MODULE_RULES = [
@@ -207,6 +209,18 @@ def main():
             print("!! 解析失败", f, e); got = []
         sh += got
         print(f"{f:46s} 简答题 {len(got):3d}")
+    # 保证题目 id 全局唯一（同一文件里 Part A/Part B 各自从 Q1 编号会产生重复 id，
+    # 而 app.js 用 id 作为练习统计/错题本的键）
+    used = set()
+    for q in qs + sh:
+        base = q["id"]
+        if base in used:
+            n = 2
+            while f"{base}-{n}" in used:
+                n += 1
+            q["id"] = f"{base}-{n}"
+        used.add(q["id"])
+
     bad = [q for q in qs if not q["answer"] or len(q["options"]) < 2]
     for q in qs + sh:
         q["tutorial"] = tutorial_of(q)
