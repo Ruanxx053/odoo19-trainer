@@ -180,3 +180,17 @@ table.tb th{color:var(--muted);font-weight:600;font-size:13px}
   .topbar{padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right))}
   .view{padding-bottom:max(90px,env(safe-area-inset-bottom))}
 }
+
+/* ---- Mermaid 图：点击放大（全屏可缩放 / 平移） ---- */
+.md .mermaid{cursor:zoom-in;-webkit-tap-highlight-color:transparent}
+.md .mermaid::after{content:"🔍 点击放大";display:block;font-size:12px;color:var(--muted);margin-top:6px}
+body.zoom-open{overflow:hidden}
+.zoom-bg{position:fixed;top:0;right:0;bottom:0;left:0;background:#0f111a;z-index:200;display:flex;flex-direction:column}
+.zoom-bar{display:flex;gap:8px;align-items:center;justify-content:center;padding:10px 12px;padding-top:calc(10px + env(safe-area-inset-top,0px));background:#1a1e29;border-bottom:1px solid rgba(255,255,255,.14);flex:0 0 auto}
+.zbtn{appearance:none;-webkit-appearance:none;border:1px solid rgba(255,255,255,.32);background:rgba(255,255,255,.1);color:#fff;border-radius:8px;padding:8px 13px;font-size:15px;line-height:1;cursor:pointer}
+.zbtn:active{background:rgba(255,255,255,.26)}
+.zbtn.close{margin-left:auto}
+.zoom-pct{color:#fff;font-size:13px;min-width:54px;text-align:center;font-variant-numeric:tabular-nums}
+.zoom-scroll{flex:1 1 auto;overflow:auto;-webkit-overflow-scrolling:touch;background:#fff;margin:10px;margin-bottom:calc(10px + env(safe-area-inset-bottom,0px));border-radius:12px}
+.zoom-inner{width:200%;padding:12px;box-sizing:border-box}
+.zoom-inner svg{max-width:none !important;width:100% !important;height:auto !important;display:block}

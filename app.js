@@ -129,6 +129,7 @@
   const TABS = [["home", "首页"], ["practice", "练习"], ["exam", "模拟考"], ["wrong", "错题本"], ["stats", "统计"], ["docs", "教程"]];
   let route = "home";
   function go(r, param) {
+    closeZoom();
     route = r; if (param) window.__param = param;
     $$("#tabs button").forEach(b => b.classList.toggle("on", b.dataset.r === r));
     $("#view").className = "view" + (r === "docs" ? " wide" : "");
@@ -795,9 +796,78 @@
     }, 80);
   }
 
+  /* ---------- 图放大（点 Mermaid 图 → 全屏，可缩放 / 平移） ---------- */
+  var zoomK = 2;
+  var ZOOM_STEPS = [0.6, 0.8, 1, 1.5, 2, 3, 4, 6, 8];
+
+  function closeZoom() {
+    var bg = document.getElementById("zoomBg");
+    if (bg) bg.remove();
+    document.body.classList.remove("zoom-open");
+  }
+  function zoomApply() {
+    var inner = document.getElementById("zoomInner"), pct = document.getElementById("zoomPct");
+    if (inner) inner.style.width = (zoomK * 100) + "%";
+    if (pct) pct.textContent = Math.round(zoomK * 100) + "%";
+  }
+  function zoomSet(k) { zoomK = Math.max(ZOOM_STEPS[0], Math.min(ZOOM_STEPS[ZOOM_STEPS.length - 1], k)); zoomApply(); }
+  function zoomStep(dir) {
+    var i = 0;
+    for (var j = 0; j < ZOOM_STEPS.length; j++) { if (ZOOM_STEPS[j] <= zoomK + 0.001) i = j; }
+    zoomSet(ZOOM_STEPS[Math.max(0, Math.min(ZOOM_STEPS.length - 1, i + dir))]);
+  }
+  function zoomOpenFrom(m) {
+    var svg = m.querySelector("svg");
+    if (!svg) return;                       /* 渲染失败时保留源码，不弹层 */
+    closeZoom();
+    var bg = document.createElement("div");
+    bg.className = "zoom-bg"; bg.id = "zoomBg";
+    bg.innerHTML =
+      '<div class="zoom-bar">' +
+        '<button class="zbtn" data-z="-">−</button>' +
+        '<span class="zoom-pct" id="zoomPct">200%</span>' +
+        '<button class="zbtn" data-z="+">＋</button>' +
+        '<button class="zbtn" data-z="1">适应</button>' +
+        '<button class="zbtn close" data-z="x">✕ 关闭</button>' +
+      '</div>' +
+      '<div class="zoom-scroll"><div class="zoom-inner" id="zoomInner"></div></div>';
+    var clone = svg.cloneNode(true);
+    clone.removeAttribute("style");
+    clone.setAttribute("style", "max-width:none;width:100%;height:auto;display:block");
+    bg.querySelector("#zoomInner").appendChild(clone);
+    document.body.appendChild(bg);
+    document.body.classList.add("zoom-open");
+    zoomK = 2; zoomApply();
+
+    var dx = 0, dy = 0, moved = false;
+    bg.addEventListener("pointerdown", function (e) { dx = e.clientX; dy = e.clientY; moved = false; });
+    bg.addEventListener("pointermove", function (e) {
+      if (Math.abs(e.clientX - dx) > 8 || Math.abs(e.clientY - dy) > 8) moved = true;
+    });
+    bg.addEventListener("click", function (e) {
+      var b = e.target.closest && e.target.closest("[data-z]");
+      if (b) {
+        var v = b.getAttribute("data-z");
+        if (v === "x") return closeZoom();
+        if (v === "1") return zoomSet(1);
+        return zoomStep(v === "+" ? 1 : -1);
+      }
+      if (moved) return;                                     /* 刚才是拖动/平移，别关 */
+      if (!(e.target.closest && e.target.closest(".zoom-inner"))) closeZoom();
+    });
+  }
+  document.addEventListener("click", function (e) {
+    var t = e.target;
+    if (!t || !t.closest) return;
+    if (t.closest("#zoomBg")) return;
+    var m = t.closest(".mermaid");
+    if (m) zoomOpenFrom(m);
+  });
+
   /* ---------- 键盘 ---------- */
   document.addEventListener("keydown", function (e) {
     if (/^(INPUT|TEXTAREA|SELECT)$/.test((e.target.tagName || ""))) return;
+    if (e.key === "Escape") { closeZoom(); return; }
     if (route === "practice" && P.queue.length) {
       if (/^[1-4]$/.test(e.key)) { const k = "ABCD"[+e.key - 1]; if (P.state === "answering") pickOption(k); }
       else if (e.key === "Enter") nextQ();
