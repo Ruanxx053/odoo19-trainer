@@ -5,7 +5,7 @@
   const TUT = window.TUTORIALS || [];
   const MCQ = BANK.mcq, SHORT = BANK.short;
   const LSKEY = "odoo19_trainer_v1";
-  const APP_VER = "v6";
+  const APP_VER = "v7";
 
   /* ---------- 状态 ---------- */
   const DEF = { records: {}, sessions: [], settings: { shuffle: true, showEn: true, api: { base: "", key: "", model: "gpt-4o-mini" } } };
@@ -756,8 +756,8 @@
   }
   function viewDocs() {
     const cur = TUT.find(t => t.file === curDoc) || TUT[0];
-    const kind = f => /^\d\d-/.test(f) ? (parseInt(f, 10) <= 19 ? "备考教程" : "题库 / 规范 / 清单") : "其他";
-    const groups = { "备考教程": [], "题库 / 规范 / 清单": [], "其他": [] };
+    const kind = f => /速记手册/.test(f) ? "速记手册" : (/^\d\d-/.test(f) ? (parseInt(f, 10) <= 19 ? "备考教程" : "题库 / 规范 / 清单") : "其他");
+    const groups = { "速记手册": [], "备考教程": [], "题库 / 规范 / 清单": [], "其他": [] };
     TUT.forEach(t => groups[kind(t.file)].push(t));
     return `
     <div class="docs">

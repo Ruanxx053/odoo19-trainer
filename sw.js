@@ -1,7 +1,7 @@
 /* Odoo 19 认证训练器 —— 离线缓存 Service Worker
    只有通过 http(s) 打开时才会注册；file:// 下浏览器不支持 SW，会安静跳过。
    改了 app.js / bank.js / tutorials.js 之后，把 VERSION 改一下即可让手机拉到新版。 */
-const VERSION = "odoo19-trainer-v6";
+const VERSION = "odoo19-trainer-v7";
 const ASSETS = [
   "./", "./index.html", "./app.css", "./app.js",
   "./bank.js", "./tutorials.js", "./mermaid.min.js",

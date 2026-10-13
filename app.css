@@ -174,6 +174,9 @@ table.tb th{color:var(--muted);font-weight:600;font-size:13px}
   textarea#ai-out{min-height:150px}
   .toast{left:12px;right:12px;max-width:none;text-align:center}
   .md{overflow-wrap:break-word}
+  /* 手机：宽表格可以左右滑动，别把内容截掉 */
+  .md table{display:block;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;font-size:13px}
+  .md th,.md td{padding:6px 8px;min-width:84px}
 }
 /* iPhone 刘海 / 底部横条安全区 */
 @supports (padding:max(0px)){
