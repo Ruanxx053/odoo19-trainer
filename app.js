@@ -5,7 +5,7 @@
   const TUT = window.TUTORIALS || [];
   const MCQ = BANK.mcq, SHORT = BANK.short;
   const LSKEY = "odoo19_trainer_v1";
-  const APP_VER = "v7";
+  const APP_VER = "v8";
 
   /* ---------- 状态 ---------- */
   const DEF = { records: {}, sessions: [], settings: { shuffle: true, showEn: true, api: { base: "", key: "", model: "gpt-4o-mini" } } };
@@ -45,7 +45,10 @@
   function fmtTime(ms) { const s = Math.round(ms / 1000); return s < 60 ? s + " 秒" : Math.floor(s / 60) + " 分" + (s % 60) + " 秒"; }
   function shuffleArr(a) { const x = a.slice(); for (let i = x.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [x[i], x[j]] = [x[j], x[i]]; } return x; }
 
-  const MODULES = ["会计", "库存", "制造", "销售", "采购"];
+  const MODULE_ORDER = ["会计", "库存", "制造", "销售", "采购", "CRM", "权限", "项目", "工时", "服务计费"];
+  // 模块列表从题库推导：题库里出现了什么模块就显示什么，避免新增题被漏掉
+  const MODULES = MODULE_ORDER.filter(m => MCQ.some(q => q.module === m))
+    .concat(Array.from(new Set(MCQ.map(q => q.module))).filter(m => m && MODULE_ORDER.indexOf(m) < 0));
   const SETS = Array.from(new Set(MCQ.map(q => q.set)));
   const ALL_IDS = MCQ.map(q => q.id);
   const byId = {}; MCQ.concat(SHORT).forEach(q => (byId[q.id] = q));

@@ -5756,6 +5756,1070 @@
    "explain": "**解析**：确认销售订单只改变单据状态并触发后续交货/开票，**不产生分录**；分录出现在收货（自动计价）、发票过账、以及收款/核销这些环节。\n**干扰项**：A、B、C 都会生成分录（C 在核销时还可能产生汇兑损益）。",
    "source": "`32-教程-会计11笔业务案例.md`（第三节）；`30-教程-会计分录入门（借贷方向）.md`",
    "tutorial": "32-教程-会计11笔业务案例.md"
+  },
+  {
+   "id": "43-A1",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "销售",
+   "part": "A 组 · 对应「题三·确认订单 → 交货 → 发票」的 4 个问题",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 1,
+   "stem_en": "A storable product is confirmed on a sales order, but no delivery order is created in Inventory. What is the most likely cause?",
+   "stem_zh": "一张销售订单已确认，产品是可存储商品，但库存里始终没有生成交货单。最可能的原因是什么？",
+   "options": [
+    {
+     "key": "A",
+     "text": "The product's on-hand quantity is zero, so Odoo skips the delivery",
+     "zh": "该产品在手数量为 0，所以 Odoo 不生成交货单。"
+    },
+    {
+     "key": "B",
+     "text": "The product is set as a Service type, or no route containing a delivery step is configured on the product / product category",
+     "zh": "该产品被设成「服务 Service」类型，或产品 / 产品类别上没有配置含「发货」步骤的路线。"
+    },
+    {
+     "key": "C",
+     "text": "The salesperson does not have Inventory access rights",
+     "zh": "该销售员没有库存模块的访问权限。"
+    },
+    {
+     "key": "D",
+     "text": "Multi-Step Routes has not been enabled in Inventory settings",
+     "zh": "库存设置里没有开启「多步路线」。"
+    }
+   ],
+   "answer": "B",
+   "explain": "**解析**：**路线决定\"要不要生成交货单\"**。产品类型为服务、或路线里没有\"发货\"这一步，就不会生成出库单。源码里销售订单确认时按路线展开调拨（`sale_stock`）。\n**干扰项**：A 是把\"没有货\"和\"没有单\"搞混——在手为 0 时交货单**照样生成**，只是状态停在\"等待\"；C 权限只影响**看得见看不见**；D 多步路线只影响**步数**，不影响是否生成。",
+   "source": "`38-案例与排查-销售.md`（案例 1、三、排查）；第三方《销售详细解析·题三》问题 1",
+   "tutorial": "38-案例与排查-销售.md"
+  },
+  {
+   "id": "43-A2",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "销售",
+   "part": "A 组 · 对应「题三·确认订单 → 交货 → 发票」的 4 个问题",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 2,
+   "stem_en": "A confirmed sales order shows a \"Locked\" ribbon and quantities can no longer be edited. What is the correct way to change it?",
+   "stem_zh": "一张已确认的销售订单右上角显示 `Locked` 缎带，数量改不动了。正确处理方式是什么？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Edit anyway — Odoo only warns, it does not block",
+     "zh": "直接改，Odoo 只会提示不会拦。"
+    },
+    {
+     "key": "B",
+     "text": "Cancel the order and create a new one",
+     "zh": "把这张单取消，重新建一张。"
+    },
+    {
+     "key": "C",
+     "text": "Use the **Unlock** button on the order (or **Return to Draft** first), then edit and re-confirm",
+     "zh": "用订单上的**解锁 Unlock** 按钮（或先**退回草稿 Return to Draft**），改完再确认。"
+    },
+    {
+     "key": "D",
+     "text": "Change the field in the database through Studio",
+     "zh": "用 Studio 直接改数据库里的字段。"
+    }
+   ],
+   "answer": "C",
+   "explain": "**解析**：Odoo 19 的销售订单表单有 `action_lock` / `action_unlock` 两个按钮和 `locked` 字段；锁定后表单只读，解锁即可编辑。这不是 bug，是**防止已确认订单被随意改动**的保护。\n**干扰项**：A 事实错误（锁定是真只读）；B 会丢掉单据号与历史；D 绕过业务规则，属于反面做法。",
+   "source": "源码 `addons/sale/views/sale_order_views.xml:345-376`（`action_lock` / `action_unlock` / `locked` 缎带）",
+   "tutorial": "05-Sales.md"
+  },
+  {
+   "id": "43-A3",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "销售",
+   "part": "A 组 · 对应「题三·确认订单 → 交货 → 发票」的 4 个问题",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 3,
+   "stem_en": "A sales order totals 10,000 but the generated customer invoice is only 6,000. Which configuration explains this by design?",
+   "stem_zh": "一张销售订单合计 10,000，但生成的客户发票只有 6,000。哪一种配置会**按设计**产生这个结果？",
+   "options": [
+    {
+     "key": "A",
+     "text": "The invoice policy is **Delivered quantities**, and only 60% of the goods have been shipped",
+     "zh": "开票策略是「按已发货数量 Delivered quantities」，而目前只发货了 60%。"
+    },
+    {
+     "key": "B",
+     "text": "The customer has no pricelist bound",
+     "zh": "客户没有绑定价格表。"
+    },
+    {
+     "key": "C",
+     "text": "The invoice policy is **Ordered quantities**",
+     "zh": "开票策略是「按已订购数量 Ordered quantities」。"
+    },
+    {
+     "key": "D",
+     "text": "The product's invoicing policy was changed after confirmation",
+     "zh": "产品开票策略在订单确认之后被改过。"
+    }
+   ],
+   "answer": "A",
+   "explain": "**解析**：开票策略字段是产品上的 `invoice_policy`：`Ordered quantities`（下单即按订单量开票）与 `Delivered quantities`（**按已发货数量**开票）。选后者时，部分发货就只能开部分金额——这正是\"发票对不上订单\"的最常见原因。\n**干扰项**：C 的说法本身正确但**结果相反**（按订单数量会开满 10,000）；B 会导致单价不对而不是数量不对；D 不影响已生成的发票。",
+   "source": "`05-Sales.md`、`38-案例与排查-销售.md`（案例 2：分批交付 → 分批开票）",
+   "tutorial": "05-Sales.md"
+  },
+  {
+   "id": "43-A4",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "销售",
+   "part": "A 组 · 对应「题三·确认订单 → 交货 → 发票」的 4 个问题",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 4,
+   "stem_en": "A customer paid an invoice in full, but the invoice still shows \"Not Paid\". What is the cause?",
+   "stem_zh": "客户已全额付款，但发票仍显示\"未付款\"。原因是什么？",
+   "options": [
+    {
+     "key": "A",
+     "text": "The payment date is in the future",
+     "zh": "付款日期填成了未来日期。"
+    },
+    {
+     "key": "B",
+     "text": "The invoice was never posted",
+     "zh": "这张发票从来没被过账。"
+    },
+    {
+     "key": "C",
+     "text": "The bank journal is not configured",
+     "zh": "银行日记账没有配置。"
+    },
+    {
+     "key": "D",
+     "text": "The payment was registered but not **reconciled** against the invoice (amount or currency mismatch)",
+     "zh": "付款单已生成但**没有与发票核销**（金额不等或币种不同）。"
+    }
+   ],
+   "answer": "D",
+   "explain": "**解析**：付款状态由**核销**结果决定：只有付款分录与发票分录在应收账款下对冲，状态才会变成\"已付款 Paid\"。金额不等、币种不同时系统不会自动匹配，需要手工核销。\n**干扰项**：A 只是日期问题，不影响核销；B 若未过账，发票连\"未付款\"都不会显示为已入账；C 没配日记账根本**登记不了**收款。",
+   "source": "`41-案例与排查-会计.md`（案例 2、三、排查）；第三方《销售详细解析·题三》问题 4",
+   "tutorial": "41-案例与排查-会计.md"
+  },
+  {
+   "id": "43-A5",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "销售",
+   "part": "B 组 · 对应「题四·报价单模板与价格表」的 4 个问题",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 5,
+   "stem_en": "A user cannot find the \"Quotation Templates\" or \"Pricelists\" entries at all. What is the first thing to check?",
+   "stem_zh": "用户在菜单里**完全找不到**「报价单模板」和「价格表」。第一件该查的事是什么？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Whether **Quotations Templates / Pricelists** are enabled in `Sales → Configuration → Settings`",
+     "zh": "`销售 → 配置 → 设置` 里有没有勾选**报价单模板 / 价格表**。"
+    },
+    {
+     "key": "B",
+     "text": "Whether the Sales app is installed",
+     "zh": "销售应用有没有安装。"
+    },
+    {
+     "key": "C",
+     "text": "Whether the records were archived",
+     "zh": "相关记录是不是被归档了。"
+    },
+    {
+     "key": "D",
+     "text": "Whether the user has developer mode enabled",
+     "zh": "用户有没有开启开发者模式。"
+    }
+   ],
+   "answer": "A",
+   "explain": "**解析**：这两个菜单是**开关驱动**的：不勾选，菜单根本不显示。启用后路径分别是 `销售 → 配置 → 销售订单 → 报价模板`（源码 `sale_management/views/sale_management_menus.xml`，父菜单 `Sales Orders`）与 `销售 → 产品 → 价格表`（源码 `sale/views/sale_menus.xml:66`）。\n**干扰项**：D 开发者模式管的是\"阶段配置\"这类技术菜单，不管这两个；B 没装销售应用连菜单栏都没有，与\"只有这两项不见\"不符；C 归档只会让**记录**消失，不会让**菜单**消失。",
+   "source": "第三方《销售详细解析·题四》问题 1；本仓库 `31-路径核对`、`05-Sales.md`",
+   "tutorial": "05-Sales.md"
+  },
+  {
+   "id": "43-A6",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "销售",
+   "part": "B 组 · 对应「题四·报价单模板与价格表」的 4 个问题",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 6,
+   "stem_en": "A quotation line pulls a price that is different from the customer's negotiated price. Which check is **least** relevant?",
+   "stem_zh": "报价单行带出的价格与客户谈好的价格不一致。下面哪一项检查**最不相关**？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Whether the pricelist bound on the customer is the intended one",
+     "zh": "客户上绑定的价格表是不是想要的那张。"
+    },
+    {
+     "key": "B",
+     "text": "Whether the quotation's currency matches the pricelist currency",
+     "zh": "报价单币种与价格表币种是否一致。"
+    },
+    {
+     "key": "C",
+     "text": "Whether the product's unit of measure is enabled in Inventory settings",
+     "zh": "库存设置里的「计量单位」开关有没有打开。"
+    },
+    {
+     "key": "D",
+     "text": "Whether the pricelist rule's minimum quantity and validity dates are matched",
+     "zh": "价格表规则的**最低数量**与**有效期**是否命中。"
+    }
+   ],
+   "answer": "C",
+   "explain": "**解析**：价格由**价格表**逐层算出：客户绑定哪张表 → 币种 → 规则的最低数量 / 有效期 / 产品分类是否命中 → 否则退回产品上的\"销售价格\"。计量单位开关只影响能不能**用多单位**，不参与选价。\n**干扰项**：A、B、D 都是选价链路上的真实环节，是这道题的\"看起来都像对的\"干扰项。",
+   "source": "`05-Sales.md`（价格怎么算出来）；`38-案例与排查-销售.md`（案例 3）",
+   "tutorial": "05-Sales.md"
+  },
+  {
+   "id": "43-A7",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "销售",
+   "part": "B 组 · 对应「题四·报价单模板与价格表」的 4 个问题",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 7,
+   "stem_en": "A user edits a quotation template, but existing quotations still show the old lines. Is this a bug?",
+   "stem_zh": "用户改了报价单模板，但已存在的报价单里还是旧的行。这是 bug 吗？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Yes — templates are live-linked and should refresh all quotations",
+     "zh": "是 bug，模板与报价单是实时的，应该同步刷新。"
+    },
+    {
+     "key": "B",
+     "text": "No — but only because the template was archived",
+     "zh": "不是，但只是因为模板被归档了。"
+    },
+    {
+     "key": "C",
+     "text": "Yes — the user must clear the browser cache",
+     "zh": "是 bug，清一下浏览器缓存就好。"
+    },
+    {
+     "key": "D",
+     "text": "No — this is expected: a quotation has its own lines once created; the template only applies when it is (re)selected",
+     "zh": "不是，这是预期行为：报价单创建后就有自己的行，模板只在**新建/重新选择模板**时套用。"
+    }
+   ],
+   "answer": "D",
+   "explain": "**解析**：模板是\"起手式\"不是\"外键\"。生成报价单时把模板的行、条款、有效期**拷贝**成报价单自己的行；之后改模板不会回头改历史单据，改价格表也只影响**之后新建的行**。\n**干扰项**：A、C 把\"快照\"误当成\"实时联动\"；B 给出的原因与现象无关。",
+   "source": "第三方《销售详细解析·题四》问题 3",
+   "tutorial": "05-Sales.md"
+  },
+  {
+   "id": "43-A8",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "销售",
+   "part": "B 组 · 对应「题四·报价单模板与价格表」的 4 个问题",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 8,
+   "stem_en": "How should Quotation Templates and Pricelists be combined in daily use?",
+   "stem_zh": "日常使用中，报价单模板与价格表应该怎么搭配？",
+   "options": [
+    {
+     "key": "A",
+     "text": "The template sets the selling price; the pricelist only stores historical prices",
+     "zh": "模板定售价，价格表只存历史价。"
+    },
+    {
+     "key": "B",
+     "text": "The template decides **what is sold** (lines, terms, validity); the pricelist decides **at what price** (per customer, quantity, period, currency)",
+     "zh": "模板决定**卖什么**（产品行、条款、有效期）；价格表决定**卖多少钱**（按客户、数量、时段、币种差异化）。"
+    },
+    {
+     "key": "C",
+     "text": "The pricelist defines which products can be quoted; the template decides the terms",
+     "zh": "价格表决定能报哪些产品，模板决定条款。"
+    },
+    {
+     "key": "D",
+     "text": "They are alternatives — use one or the other, never both",
+     "zh": "两者互斥，二选一，不能同时用。"
+    }
+   ],
+   "answer": "B",
+   "explain": "**解析**：一句话分工——**模板管\"卖什么\"，价格表管\"卖多少钱\"**。两者叠加使用：模板带出标准产品组合与条款，行上的单价仍由该客户的价格表算出。\n**干扰项**：A、C 把两者的职责对调；D 把\"可叠加\"说成\"互斥\"。",
+   "source": "第三方《销售详细解析·题四》问题 4 及\"一句话总结\"",
+   "tutorial": "05-Sales.md"
+  },
+  {
+   "id": "43-A9",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "销售",
+   "part": "C 组 · 变种（换了症状，考同一批知识点）",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 9,
+   "stem_en": "A service product is confirmed on a sales order, and no delivery order appears in Inventory. Is that a problem?",
+   "stem_zh": "一张销售订单里确认了**服务类**产品，库存里没有出现任何交货单。这是问题吗？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Yes — the delivery route is missing on the product",
+     "zh": "是问题——产品上缺了发货路线。"
+    },
+    {
+     "key": "B",
+     "text": "Yes — every confirmed order must produce a delivery",
+     "zh": "是问题——任何已确认的订单都应该生成交货单。"
+    },
+    {
+     "key": "C",
+     "text": "No — service products have no stock movement, so no delivery is created",
+     "zh": "不是问题——服务类产品没有库存移动，本就不会生成交货单。"
+    },
+    {
+     "key": "D",
+     "text": "No — but only after the invoice is posted",
+     "zh": "不是问题，但要等发票过账之后才算正常。"
+    }
+   ],
+   "answer": "C",
+   "explain": "**解析**：同一张订单里可以既有商品又有服务。**只有\"可存储/商品\"类型且路线含发货步骤的产品才生成交货单**；服务类只生成发票行（交付物是\"做完工作\"）。\n**干扰项**：B 把\"商品\"的规则套到全部产品；A 服务类不需要路线；D 把交付与开票的顺序搞反。",
+   "source": "`38-案例与排查-销售.md`（案例 5：服务类产品没有出库单）",
+   "tutorial": "38-案例与排查-销售.md"
+  },
+  {
+   "id": "43-A10",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "销售",
+   "part": "C 组 · 变种（换了症状，考同一批知识点）",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 10,
+   "stem_en": "A customer has a dedicated pricelist with a 10% discount, but a new quotation shows list price. Which is **not** a valid cause?",
+   "stem_zh": "某客户绑定了带 10% 折扣的专属价格表，但新建的报价单显示的是原价。下面哪一项**不是**可能的原因？",
+   "options": [
+    {
+     "key": "A",
+     "text": "The quotation's Pricelist field points to the public pricelist",
+     "zh": "报价单上的「价格表」字段选的是公共价格表。"
+    },
+    {
+     "key": "B",
+     "text": "The pricelist rule has a validity end date that has already passed",
+     "zh": "价格表规则的有效期结束日期已经过了。"
+    },
+    {
+     "key": "C",
+     "text": "The pricelist rule targets a product category the product does not belong to",
+     "zh": "价格表规则作用的产品分类与该产品不属于同一分类。"
+    },
+    {
+     "key": "D",
+     "text": "The customer's currency differs from the company currency",
+     "zh": "客户币种与公司本位币不同。"
+    }
+   ],
+   "answer": "D",
+   "explain": "**解析**：币种不同**只影响换算与显示**，不会让专属价格表失效退回原价；如果报价单币种与价格表币种不一致，Odoo 会按汇率折算而不是丢弃规则。\n**干扰项**：A（报价单上的价格表字段可手工覆盖客户默认）、B（有效期）、C（规则适用范围）都是真实的选价失败原因。",
+   "source": "`05-Sales.md`；`38-案例与排查-销售.md`（案例 3）",
+   "tutorial": "05-Sales.md"
+  },
+  {
+   "id": "43-A11",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "销售",
+   "part": "C 组 · 变种（换了症状，考同一批知识点）",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 11,
+   "stem_en": "A sales order for 10 units is confirmed. 4 units are shipped and invoiced for 4. The customer claims the invoice should have been for 10. What should you tell them?",
+   "stem_zh": "一张 10 台的销售订单已确认，已发 4 台、开出 4 台的发票。客户认为应该直接开 10 台。你该怎么解释？",
+   "options": [
+    {
+     "key": "A",
+     "text": "With the \"Delivered quantities\" policy, invoicing follows what has actually been shipped; the remaining 6 will be invoiced after the rest is delivered",
+     "zh": "在\"按已发货数量\"策略下，开票跟着**实际发货**走；剩下 6 台在后续发货后会自动可开票。"
+    },
+    {
+     "key": "B",
+     "text": "The invoice policy is \"Ordered quantities\", so the remaining 6 were lost",
+     "zh": "开票策略是\"按已订购数量\"，剩下 6 台丢了。"
+    },
+    {
+     "key": "C",
+     "text": "It is a bug — Odoo always invoices the full order",
+     "zh": "这是 bug，Odoo 总是按整单开票。"
+    },
+    {
+     "key": "D",
+     "text": "The user must manually duplicate the invoice to reach 10",
+     "zh": "用户得手工复制一张发票凑到 10。"
+    }
+   ],
+   "answer": "A",
+   "explain": "**解析**：这正是开票策略的用途。要改成\"下单即全额开票\"，应把产品上的开票策略改为 **Ordered quantities**（影响之后的新订单），或直接把这张单的剩余数量另行开票。\n**干扰项**：C、B 对机制描述错误；D 是绕过系统而不是理解系统。",
+   "source": "`38-案例与排查-销售.md`（案例 2）；`05-Sales.md`（两个开关决定自动生成什么）",
+   "tutorial": "38-案例与排查-销售.md"
+  },
+  {
+   "id": "43-A12",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "销售",
+   "part": "C 组 · 变种（换了症状，考同一批知识点）",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 12,
+   "stem_en": "A quotation was confirmed three months ago and the customer now orders the same items, but the price has changed. What is the correct expectation?",
+   "stem_zh": "一张三个月前的报价单已确认，客户现在按同样产品再下单，但价格变了。正确的预期是什么？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Odoo keeps prices frozen forever on the original quotation",
+     "zh": "Odoo 会永久冻结原报价单上的价格。"
+    },
+    {
+     "key": "B",
+     "text": "Prices are computed from the pricelist **at the time the line is created**, so a new order gets the new price, while the old order keeps its own line values",
+     "zh": "单价是**创建行的那一刻**按价格表算出来并写进行里的，所以新订单用新价，旧订单保留自己行里的旧价。"
+    },
+    {
+     "key": "C",
+     "text": "The old order is automatically re-priced when the pricelist changes",
+     "zh": "价格表一变，旧订单会自动改价。"
+    },
+    {
+     "key": "D",
+     "text": "Changing the pricelist is not allowed while open orders exist",
+     "zh": "有未结订单时不允许改价格表。"
+    }
+   ],
+   "answer": "B",
+   "explain": "**解析**：价格表是**计算器**不是**外键**。行单价是快照，写在报价单行上；改价格表只影响**之后新建的行**，这也解释了 A7 的\"改了模板/价格表历史单据不变\"。\n**干扰项**：A 说得太绝对（并非\"永久冻结\"，而是\"行已写死\"）；C 与快照机制相反；D 无此限制。",
+   "source": "`05-Sales.md`；第三方《销售详细解析·题四》问题 3",
+   "tutorial": "05-Sales.md"
+  },
+  {
+   "id": "43-B1",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "权限",
+   "part": "系统基础与权限",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 1,
+   "stem_en": "Which statement correctly describes the relation between Users, Groups and Access Rights?",
+   "stem_zh": "下面哪一句正确描述了「用户 User / 群组 Group / 访问权限 Access Rights」的关系？",
+   "options": [
+    {
+     "key": "A",
+     "text": "A user is granted access rights individually, and groups only group users for reporting",
+     "zh": "权限是逐个授予用户的，群组只是把用户分组做报表。"
+    },
+    {
+     "key": "B",
+     "text": "Access rights are attached to users; groups exist only to send notifications",
+     "zh": "访问权限是挂在用户上的，群组只用来发通知。"
+    },
+    {
+     "key": "C",
+     "text": "Groups and access rights are the same thing in Odoo",
+     "zh": "在 Odoo 里群组和访问权限是同一个东西。"
+    },
+    {
+     "key": "D",
+     "text": "A user gains permissions by being added to groups; groups carry the access rights (and record rules), so you grant permission by assigning groups",
+     "zh": "用户通过**加入群组**获得权限；群组承载**访问权限**（和记录规则），所以授权 = 分配群组。"
+    }
+   ],
+   "answer": "D",
+   "explain": "**解析**：三层结构：**用户 → 群组 → 权限**。访问权限（模型级 CRUD）与记录规则（行级过滤）都挂在群组上；给用户加群组，他就获得该群组的所有权限。",
+   "source": "`29-教程-系统基础与权限.md`；`33-教程-权限配置与排查手册.md`",
+   "tutorial": "29-教程-系统基础与权限.md"
+  },
+  {
+   "id": "43-B2",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "权限",
+   "part": "系统基础与权限",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 2,
+   "stem_en": "A new salesperson must see and edit **only their own** sales orders. What is the correct approach?",
+   "stem_zh": "新建一个销售员账号，要求他**只能看和改自己的**销售订单。正确做法是什么？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Assign the group **User: Own Documents Only**; visibility is enforced by the record rule on the Salesperson field",
+     "zh": "分配群组 **User: Own Documents Only**；可见范围由「销售员」字段上的**记录规则**保证。"
+    },
+    {
+     "key": "B",
+     "text": "Give him Administrator, then hide the other orders with a filter",
+     "zh": "先给管理员权限，再用筛选器把别人的订单藏起来。"
+    },
+    {
+     "key": "C",
+     "text": "Set his company to a separate company so he sees nothing else",
+     "zh": "把他归到另一家公司，这样他看不到别的。"
+    },
+    {
+     "key": "D",
+     "text": "Create a new group and manually tick every sales order he may open",
+     "zh": "新建一个群组，把他能看的订单一条条勾进去。"
+    }
+   ],
+   "answer": "A",
+   "explain": "**解析**：销售有三个现成群组：`User: Own Documents Only`（只看自己的）、`User: All Documents`、`Administrator`。前者对应的记录规则 domain 形如 `['|',('user_id','=',user.id),('user_id','=',False)]`。\n**干扰项**：B 权限过大且筛选器**不是**安全边界；C 是多公司隔离，粒度不对；D 不可维护。",
+   "source": "`33-教程-权限配置与排查手册.md`（含真实 rule domain）",
+   "tutorial": "33-教程-权限配置与排查手册.md"
+  },
+  {
+   "id": "43-B3",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "CRM",
+   "part": "CRM",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 3,
+   "stem_en": "Which statement about Leads and Opportunities is correct?",
+   "stem_zh": "关于「线索 Lead」与「商机 Opportunity」，哪一句正确？",
+   "options": [
+    {
+     "key": "A",
+     "text": "They are two different models with separate data",
+     "zh": "它们是两个不同的模型，数据分开存。"
+    },
+    {
+     "key": "B",
+     "text": "A lead must be created first; an opportunity can never become a lead again",
+     "zh": "必须先建线索；商机永远不能再变回线索。"
+    },
+    {
+     "key": "C",
+     "text": "They are the same record at two stages; once converted, the lead becomes an opportunity, and the \"Leads\" menu itself only appears if the feature is enabled",
+     "zh": "它们是**同一条记录的两个阶段**；转化后线索变商机，而「线索」菜单本身要启用该功能才出现。"
+    },
+    {
+     "key": "D",
+     "text": "Leads belong to Marketing and opportunities belong to Sales",
+     "zh": "线索属于营销模块，商机属于销售模块。"
+    }
+   ],
+   "answer": "C",
+   "explain": "**解析**：`crm.lead` 是同一张表；`type` 区分 lead / opportunity。`CRM → 配置 → 设置` 里不启用 Leads，就直接建商机、没有线索菜单。",
+   "source": "`37-案例与排查-CRM.md`（1. 线索与商机是同一条记录）；`07-CRM.md`",
+   "tutorial": "37-案例与排查-CRM.md"
+  },
+  {
+   "id": "43-B4",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "CRM",
+   "part": "CRM",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 4,
+   "stem_en": "Where do you configure the stages of a sales pipeline?",
+   "stem_zh": "销售管道的**阶段**在哪里配置？",
+   "options": [
+    {
+     "key": "A",
+     "text": "`Sales → Configuration → Settings`",
+     "zh": "`销售 → 配置 → 设置`"
+    },
+    {
+     "key": "B",
+     "text": "`CRM → Configuration → Pipelines → Stages` (**developer mode required**)",
+     "zh": "`CRM → 配置 → 渠道 → 阶段`（**需开发者模式**）。"
+    },
+    {
+     "key": "C",
+     "text": "`Settings → Technical → Fields`",
+     "zh": "`设置 → 技术 → 字段`"
+    },
+    {
+     "key": "D",
+     "text": "`CRM → Configuration → Sales Teams`",
+     "zh": "`CRM → 配置 → 销售团队`"
+    }
+   ],
+   "answer": "B",
+   "explain": "**解析**：阶段挂在**团队 / 渠道**下，所以是 `配置 → 渠道 → 阶段`；该菜单受开发者模式（`base.group_no_one`）控制，没开开发者模式就看不到——这也是\"阶段在哪\"最常见的错答来源。\n**干扰项**：D 是团队本身（阶段要再进一层）；A 是销售应用设置；C 是技术字段表，不是业务配置入口。",
+   "source": "`37-案例与排查-CRM.md`（3. 阶段、团队、来源、活动）；源码 `addons/crm/views/ir_ui_menu.py:74-79`",
+   "tutorial": "37-案例与排查-CRM.md"
+  },
+  {
+   "id": "43-B5",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "销售",
+   "part": "销售",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 5,
+   "stem_en": "What is the relationship between a Quotation and a Sales Order?",
+   "stem_zh": "报价单（Quotation）与销售订单（Sales Order）是什么关系？",
+   "options": [
+    {
+     "key": "A",
+     "text": "A quotation is a PDF sent to the customer; the sales order is the system record",
+     "zh": "报价单是发给客户的 PDF，销售订单是系统里的记录。"
+    },
+    {
+     "key": "B",
+     "text": "Two separate records; confirming creates a new sales order and archives the quotation",
+     "zh": "两条独立记录；确认时新建一张销售订单并把报价单归档。"
+    },
+    {
+     "key": "C",
+     "text": "The same record in two states — confirming a quotation turns it into a sales order",
+     "zh": "**同一条记录的两个状态**——确认报价单即变成销售订单。"
+    },
+    {
+     "key": "D",
+     "text": "A sales order is created only after the customer pays a deposit",
+     "zh": "只有客户付了定金之后才会生成销售订单。"
+    }
+   ],
+   "answer": "C",
+   "explain": "**解析**：同一张 `sale.order`，`state` 从 `draft` / `sent` 变为 `sale`。单据号从 `S00001`（报价单）变成 `S00001` 系列同样的一条，只是**状态与显示名**变了。",
+   "source": "`05-Sales.md`；`38-案例与排查-销售.md`（案例 1）",
+   "tutorial": "05-Sales.md"
+  },
+  {
+   "id": "43-B6",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "销售",
+   "part": "销售",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 6,
+   "stem_en": "A company sells standard consulting packages with fixed deliverables and also gives volume discounts to resellers. Which pair of features fits?",
+   "stem_zh": "一家公司既卖\"固定交付内容的咨询套餐\"，又要给经销商按量折扣。最贴合的一对功能是什么？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Quotation Template for the standard packages, Pricelist for the volume discounts",
+     "zh": "固定套餐用**报价模板**、按量折扣用**价格表**。"
+    },
+    {
+     "key": "B",
+     "text": "Pricelist for the packages, Quotation Template for the discounts",
+     "zh": "套餐用价格表、折扣用报价模板。"
+    },
+    {
+     "key": "C",
+     "text": "Both are solved by Quotation Template",
+     "zh": "两者都用报价模板解决。"
+    },
+    {
+     "key": "D",
+     "text": "Both are solved by Pricelist",
+     "zh": "两者都用价格表解决。"
+    }
+   ],
+   "answer": "A",
+   "explain": "**解析**：\"卖什么\"（固定产品组合 + 条款）→ 报价模板；\"卖多少钱\"（按客户 / 数量 / 时段差异化）→ 价格表。价格表的规则就是按**最低数量**触发的，正是按量折扣。",
+   "source": "`05-Sales.md`（7. 价格怎么算出来）；第三方《销售详细解析·题四》",
+   "tutorial": "05-Sales.md"
+  },
+  {
+   "id": "43-B7",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "采购",
+   "part": "采购",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 7,
+   "stem_en": "Which statement about RFQ and Purchase Order is correct?",
+   "stem_zh": "关于「询价单 RFQ」与「采购订单 PO」，哪一句正确？",
+   "options": [
+    {
+     "key": "A",
+     "text": "RFQ is a formal document; the PO is created automatically after the vendor replies",
+     "zh": "RFQ 是正式单据，供应商回复后系统自动生成 PO。"
+    },
+    {
+     "key": "B",
+     "text": "A PO is created only after the goods are received",
+     "zh": "只有收到货之后才会生成 PO。"
+    },
+    {
+     "key": "C",
+     "text": "RFQ is stored in the CRM module and the PO in Purchase",
+     "zh": "RFQ 存在 CRM 里，PO 存在采购里。"
+    },
+    {
+     "key": "D",
+     "text": "The same record in two states — the button \"Confirm Order\" turns the RFQ into a purchase order",
+     "zh": "**同一条记录的两个状态**——点「确认订单 Confirm Order」即从 RFQ 变成 PO。"
+    }
+   ],
+   "answer": "D",
+   "explain": "**解析**：和销售镜像——同一张 `purchase.order`，`state` 从 `draft`(RFQ) 变 `purchase`(PO)。状态变化不产生新单据。",
+   "source": "`06-Purchase.md`（易错点 1）；`39-案例与排查-采购.md`（案例 1）",
+   "tutorial": "06-Purchase.md"
+  },
+  {
+   "id": "43-B8",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "采购",
+   "part": "采购",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 8,
+   "stem_en": "What does 3-Way Matching compare?",
+   "stem_zh": "「三单匹配 3-Way Matching」匹配的是哪三份东西？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Quotation, Sales Order and Invoice",
+     "zh": "报价单、销售订单、发票。"
+    },
+    {
+     "key": "B",
+     "text": "Purchase Order, Goods Receipt and Vendor Bill",
+     "zh": "采购订单、**收货单**、**供应商账单**。"
+    },
+    {
+     "key": "C",
+     "text": "Purchase Order, Delivery Order and Payment",
+     "zh": "采购订单、交货单、付款单。"
+    },
+    {
+     "key": "D",
+     "text": "Request for Quotation, Purchase Order and Vendor Bill",
+     "zh": "询价单、采购订单、供应商账单。"
+    }
+   ],
+   "answer": "B",
+   "explain": "**解析**：三单 = **订单 + 收货 + 账单**，三者数量与金额互相勾对，缺一方就不该付款。注意收货单与交货单方向相反（收 vs 发）。",
+   "source": "`06-Purchase.md`；`39-案例与排查-采购.md`（3. 三单匹配的因果链）",
+   "tutorial": "06-Purchase.md"
+  },
+  {
+   "id": "43-B9",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "采购",
+   "part": "采购",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 9,
+   "stem_en": "With 3-Way Matching enabled, what should the product's Bill Control policy be set to?",
+   "stem_zh": "启用三单匹配后，产品上的「账单控制策略 Bill Control」应该设成什么？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Received quantities",
+     "zh": "按**已收货数量**。"
+    },
+    {
+     "key": "B",
+     "text": "Vendor bill reference",
+     "zh": "按供应商账单参考号。"
+    },
+    {
+     "key": "C",
+     "text": "Purchase order date",
+     "zh": "按采购订单日期。"
+    },
+    {
+     "key": "D",
+     "text": "Ordered quantities",
+     "zh": "按已订购数量。"
+    }
+   ],
+   "answer": "A",
+   "explain": "**解析**：三单匹配要拿\"收货\"去卡\"账单\"，所以账单必须**按已收货数量**记账（`purchase_method = receive`）；设成\"按已订购数量\"就等于绕过收货环节，三单匹配形同虚设。\n**关键提醒**：Odoo 19 里这个策略是**产品字段**（产品表单 → 采购页签），**不是全局设置**；采购设置里只有 3-way matching 开关本身。",
+   "source": "`06-Purchase.md`（7. 账单控制策略与三单匹配（Odoo 19 修正））；`41`",
+   "tutorial": "06-Purchase.md"
+  },
+  {
+   "id": "43-B10",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "库存",
+   "part": "库存",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 10,
+   "stem_en": "In Odoo 19, where are the four inventory operations located?",
+   "stem_zh": "Odoo 19 里，库存的四个操作分别在哪里？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Physical inventory is under `Inventory → Reporting`",
+     "zh": "实物盘点在 `库存 → 报表` 下。"
+    },
+    {
+     "key": "B",
+     "text": "`Inventory → Operations → Receipts` directly, with no intermediate level",
+     "zh": "`库存 → 作业 → 收据`，中间没有多一层。"
+    },
+    {
+     "key": "C",
+     "text": "Receipts and deliveries are under Purchase and Sales respectively",
+     "zh": "收货在采购里、发货在销售里。"
+    },
+    {
+     "key": "D",
+     "text": "All under `Inventory → Operations → Transfers → Receipts / Delivery Orders / Internal`, and adjustments under `Operations → Adjustments → Physical Inventory / Landed Costs`",
+     "zh": "调拨都在 `库存 → 作业 → 调拨 → 收据 / 交货 / 内部`，调整都在 `库存 → 作业 → 调整 → 实物库存 / 到岸成本`。"
+    }
+   ],
+   "answer": "D",
+   "explain": "**解析**：19 把「调拨 Transfers」和「调整 Adjustments」做成了两级分组，四个操作都在 `作业` 下**再多一层**——这是\"照旧版路径找不到菜单\"的头号原因。",
+   "source": "`40-案例与排查-库存.md`（19 的路径表）；`31-路径核对`",
+   "tutorial": "40-案例与排查-库存.md"
+  },
+  {
+   "id": "43-B11",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "库存",
+   "part": "库存",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 11,
+   "stem_en": "In a reordering rule, what do the Min and Max quantities mean?",
+   "stem_zh": "再订购规则里的「最小数量 Min」和「最大数量 Max」分别代表什么？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Min is the safety stock that must never be sold; Max is the warehouse capacity",
+     "zh": "最小是不可动用的安全库存，最大是仓库容量。"
+    },
+    {
+     "key": "B",
+     "text": "Min is the trigger level; Max is the target level — the order quantity is Max − forecast",
+     "zh": "最小是**触发线**，最大是**补货目标**；实际补货量 = **最大 − 预测**。"
+    },
+    {
+     "key": "C",
+     "text": "Min is the quantity to order; Max is the quantity to keep",
+     "zh": "最小是要采购的数量，最大是要保留的数量。"
+    },
+    {
+     "key": "D",
+     "text": "Min and Max define the valid range of manual stock adjustments",
+     "zh": "最小与最大定义了手工调整库存的合法区间。"
+    }
+   ],
+   "answer": "B",
+   "explain": "**解析**：调度器在**预测 ≤ 最小数量**时触发，把库存补到**最大数量**（再按最小包装量向上取整）。注意看的是**预测**（含在途入库与待出库），不是在手。",
+   "source": "`03-Inventory.md`；`40-案例与排查-库存.md`（案例 4）",
+   "tutorial": "03-Inventory.md"
+  },
+  {
+   "id": "43-B12",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "库存",
+   "part": "库存",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 12,
+   "stem_en": "Which condition set will make the scheduler generate a purchase order from a reordering rule?",
+   "stem_zh": "满足哪组条件时，调度器才会按再订购规则生成采购订单？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Only that the forecast equals zero",
+     "zh": "只要预测为 0。"
+    },
+    {
+     "key": "B",
+     "text": "That someone clicks \"Order\" on the replenishment page every time",
+     "zh": "每次都得有人去补货页面点「订购」。"
+    },
+    {
+     "key": "C",
+     "text": "Forecast ≤ Min, a vendor is available on the product, and the product's route includes Buy",
+     "zh": "预测 ≤ 最小数量、产品上有（默认）供应商、且产品的路线包含「购买」。"
+    },
+    {
+     "key": "D",
+     "text": "That the on-hand quantity is negative",
+     "zh": "只要在手数量为负数。"
+    }
+   ],
+   "answer": "C",
+   "explain": "**解析**：三个条件缺一不可——**触发线、供应商、路线**。第三个最容易被忽略：路线不含\"购买\"，规则只会生成**调拨或生产单**，不会生成采购单。",
+   "source": "`06-Purchase.md`；`40-案例与排查-库存.md`（三、排查）",
+   "tutorial": "06-Purchase.md"
+  },
+  {
+   "id": "43-B13",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "会计",
+   "part": "会计",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 13,
+   "stem_en": "What entries does posting a customer invoice of 113,000 (net 100,000 + 13% tax) create?",
+   "stem_zh": "一张含税 113,000（不含税 100,000 + 13% 税）的客户发票，过账时产生什么分录？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Debit Bank 113,000; credit Revenue 113,000",
+     "zh": "借银行存款 113,000；贷收入 113,000。"
+    },
+    {
+     "key": "B",
+     "text": "Debit Accounts Receivable 113,000; credit Revenue 100,000 and Output VAT 13,000",
+     "zh": "借应收账款 113,000；贷主营业务收入 100,000、贷销项税额 13,000。"
+    },
+    {
+     "key": "C",
+     "text": "Debit Revenue 100,000; credit Accounts Receivable 100,000",
+     "zh": "借收入 100,000；贷应收账款 100,000。"
+    },
+    {
+     "key": "D",
+     "text": "Debit Accounts Receivable 100,000 and Input VAT 13,000; credit Revenue 113,000",
+     "zh": "借应收账款 100,000、借进项税额 13,000；贷收入 113,000。"
+    }
+   ],
+   "answer": "B",
+   "explain": "**解析**：收入在**过账那一刻**按权责发生制确认。销项税是负债（记贷方）。A 把\"收款\"当成了开票；C 借贷方向整体反了；D 把销项税与进项税搞混（进项税是采购侧）。",
+   "source": "`30-教程-会计分录入门（借贷方向）.md`；`41-案例与排查-会计.md`（案例 1）",
+   "tutorial": "30-教程-会计分录入门（借贷方向）.md"
+  },
+  {
+   "id": "43-B14",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "会计",
+   "part": "会计",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 14,
+   "stem_en": "The customer pays that invoice by bank transfer. Which entry does registering the payment create?",
+   "stem_zh": "客户用银行转账付清这张发票。登记收款产生的分录是？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Debit Bank 113,000; credit Accounts Receivable 113,000",
+     "zh": "借银行存款 113,000；贷应收账款 113,000。"
+    },
+    {
+     "key": "B",
+     "text": "Debit Accounts Receivable 113,000; credit Bank 113,000",
+     "zh": "借应收账款 113,000；贷银行存款 113,000。"
+    },
+    {
+     "key": "C",
+     "text": "Debit Revenue 100,000; credit Bank 100,000",
+     "zh": "借收入 100,000；贷银行存款 100,000。"
+    },
+    {
+     "key": "D",
+     "text": "Debit Bank 113,000; credit Revenue 113,000",
+     "zh": "借银行存款 113,000；贷收入 113,000。"
+    }
+   ],
+   "answer": "A",
+   "explain": "**解析**：钱进来了（资产↑，记借），应收账款消失（资产↓，记贷）——**\"借银行、贷应收\"**。登记收款之后还要**核销**，发票才会显示\"已付款\"。\n**干扰项**：D 重复确认收入；B 方向整体反了（那是\"退款/付款出去\"的方向）；C 金额与方向都错。",
+   "source": "`41-案例与排查-会计.md`（案例 1、四）",
+   "tutorial": "41-案例与排查-会计.md"
+  },
+  {
+   "id": "43-B15",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "会计",
+   "part": "会计",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 15,
+   "stem_en": "After paying a vendor bill, you need the payables detail for that one supplier. Which is the best fit?",
+   "stem_zh": "付完供应商账单后，要单独看**这一个供应商**的应付明细。哪个最合适？",
+   "options": [
+    {
+     "key": "A",
+     "text": "The sales analysis report",
+     "zh": "看销售分析报表。"
+    },
+    {
+     "key": "B",
+     "text": "The company-wide Balance Sheet payable total",
+     "zh": "看全公司资产负债表上的应付账款总额。"
+    },
+    {
+     "key": "C",
+     "text": "The product's valuation report",
+     "zh": "看产品的库存计价报表。"
+    },
+    {
+     "key": "D",
+     "text": "The Partner Ledger / aged reporting for that partner (enterprise accounting reports), or `Accounting → Review → Control → Journal Items` filtered by Payable + Partner in Community",
+     "zh": "用该合作伙伴的**合作伙伴账龄表**（企业版核算报表），或社区版在 `开票 → 审核 → 控制 → 日记账项目` 里按「应付 Payable + 合作伙伴」筛选。"
+    }
+   ],
+   "answer": "D",
+   "explain": "**解析**：资产负债表只能给**总额**、拆不到供应商；要按供应商看明细，最合适的是**合作伙伴账龄表 / 账龄分析**（企业版模块提供），社区版用**日记账项目**按\"应付 + 合作伙伴\"筛选。",
+   "source": "`41-案例与排查-会计.md`（三、排查；四、路径速查）",
+   "tutorial": "41-案例与排查-会计.md"
+  },
+  {
+   "id": "43-B16",
+   "type": "mcq",
+   "set": "诊断题 04 · 销售诊断+基础十题",
+   "level": "基础",
+   "module": "库存",
+   "part": "库存 · 变种",
+   "file": "43-测试题-销售诊断与基础十题（含变种）.md",
+   "num": 16,
+   "stem_en": "An internal transfer was done between two warehouses, but total on-hand inventory changed. Why?",
+   "stem_zh": "在两个仓库之间做了一次内部调拨，但**总在手库存变了**。为什么？",
+   "options": [
+    {
+     "key": "A",
+     "text": "Internal transfers always change total stock",
+     "zh": "内部调拨本来就会改变总库存。"
+    },
+    {
+     "key": "B",
+     "text": "The scheduler recalculated the forecast during the transfer",
+     "zh": "调度器在调拨期间重算了预测。"
+    },
+    {
+     "key": "C",
+     "text": "One end of the transfer was a virtual/external location, so goods effectively left or entered the company",
+     "zh": "调拨的**某一端是虚拟/外部库位**，所以货实际上是离开了或进入了公司。"
+    },
+    {
+     "key": "D",
+     "text": "The product uses FIFO valuation",
+     "zh": "该产品用的是 FIFO 计价。"
+    }
+   ],
+   "answer": "C",
+   "explain": "**解析**：**只看两端**：两端都是内部库位 → 总库存不变；任一端是虚拟库位（供应商、客户、库存损失、生产、盘点）→ 总库存变化。",
+   "source": "`40-案例与排查-库存.md`（1. 库位是\"位置\"，仓库只是视图）",
+   "tutorial": "40-案例与排查-库存.md"
   }
  ],
  "short": [
@@ -7144,7 +8208,7 @@
    "type": "short",
    "set": "简答题 · 会计案例/权限",
    "level": "复述",
-   "module": "通用",
+   "module": "权限",
    "part": "权限",
    "file": "35-简答题-会计案例与权限-12题.md",
    "stem_zh": "用户、群组、访问权限、记录规则四者是什么关系？分别控制什么？",
@@ -7166,7 +8230,7 @@
    "type": "short",
    "set": "简答题 · 会计案例/权限",
    "level": "复述",
-   "module": "销售",
+   "module": "权限",
    "part": "权限",
    "file": "35-简答题-会计案例与权限-12题.md",
    "stem_zh": "新建一个销售员，要求只能查看和操作自己的销售订单，请写出关键配置步骤。",
@@ -7188,7 +8252,7 @@
    "type": "short",
    "set": "简答题 · 会计案例/权限",
    "level": "复述",
-   "module": "销售",
+   "module": "权限",
    "part": "权限",
    "file": "35-简答题-会计案例与权限-12题.md",
    "stem_zh": "销售模块的三个角色群组分别是什么？为什么\"多给一个群组\"会让权限变宽？",
@@ -7208,7 +8272,7 @@
    "type": "short",
    "set": "简答题 · 会计案例/权限",
    "level": "复述",
-   "module": "CRM",
+   "module": "权限",
    "part": "权限",
    "file": "35-简答题-会计案例与权限-12题.md",
    "stem_zh": "门户用户（Portal）能看什么？为什么 CRM 的「阶段」菜单在普通界面里看不到？",
