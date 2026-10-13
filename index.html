@@ -29,9 +29,20 @@
 <script src="mermaid.min.js" onerror="window.__mermaidMissing=1"></script>
 <script src="app.js"></script>
 <script>
-/* 离线缓存：只有通过 http(s) 打开时才注册（file:// 不支持 Service Worker，会安静跳过） */
+/* 离线缓存：只有通过 http(s) 打开时才注册（file:// 不支持 Service Worker，会安静跳过）。
+   updateViaCache:"none" 让浏览器每次都绕过 HTTP 缓存去查新版 sw.js；
+   新 SW 接管后自动刷新一次，避免"改了代码但手机/电脑还是旧的"。 */
 if ("serviceWorker" in navigator && location.protocol.indexOf("http") === 0) {
-  navigator.serviceWorker.register("sw.js").catch(function () {});
+  var hadController = !!navigator.serviceWorker.controller;
+  navigator.serviceWorker.register("sw.js", { updateViaCache: "none" })
+    .then(function (reg) { try { reg.update(); } catch (e) {} })
+    .catch(function () {});
+  var swReloaded = false;
+  navigator.serviceWorker.addEventListener("controllerchange", function () {
+    if (!hadController || swReloaded) return;
+    swReloaded = true;
+    location.reload();
+  });
 }
 </script>
 </body>

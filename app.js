@@ -5,6 +5,7 @@
   const TUT = window.TUTORIALS || [];
   const MCQ = BANK.mcq, SHORT = BANK.short;
   const LSKEY = "odoo19_trainer_v1";
+  const APP_VER = "v6";
 
   /* ---------- 状态 ---------- */
   const DEF = { records: {}, sessions: [], settings: { shuffle: true, showEn: true, api: { base: "", key: "", model: "gpt-4o-mini" } } };
@@ -138,7 +139,7 @@
   }
   function render() {
     const o0 = overall();
-    if ($("#hdrMeta")) $("#hdrMeta").textContent = "已练 " + o0.seen + "/" + o0.total + " · 正确率 " + pct(o0.right, o0.right + o0.wrong) + "% · 待攻错题 " + Object.keys(S.records).filter(function (k) { return S.records[k].wrong && !S.records[k].mastered; }).length;
+    if ($("#hdrMeta")) $("#hdrMeta").textContent = "已练 " + o0.seen + "/" + o0.total + " · 正确率 " + pct(o0.right, o0.right + o0.wrong) + "% · 待攻错题 " + Object.keys(S.records).filter(function (k) { return S.records[k].wrong && !S.records[k].mastered; }).length + " · " + APP_VER;
     const v = $("#view");
     if (route === "home") v.innerHTML = viewHome();
     else if (route === "practice") v.innerHTML = viewPractice();
@@ -883,7 +884,7 @@
   function init() {
     $("#tabs").innerHTML = TABS.map(t => `<button data-r="${t[0]}" data-act="go" data-val="${t[0]}">${t[1]}</button>`).join("");
     const o = overall();
-    $("#hdrMeta").textContent = `已练 ${o.seen}/${o.total} · 正确率 ${pct(o.right, o.right + o.wrong)}%`;
+    $("#hdrMeta").textContent = `已练 ${o.seen}/${o.total} · 正确率 ${pct(o.right, o.right + o.wrong)}% · ${APP_VER}`;
     if (window.__mermaidMissing) console.warn("mermaid.min.js 未找到，时序图将显示为代码");
     go("home");
     document.addEventListener("change", function (e) {
