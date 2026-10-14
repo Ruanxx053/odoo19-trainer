@@ -5,7 +5,7 @@
   const TUT = window.TUTORIALS || [];
   const MCQ = BANK.mcq, SHORT = BANK.short;
   const LSKEY = "odoo19_trainer_v1";
-  const APP_VER = "v10";
+  const APP_VER = "v11";
 
   /* ---------- 状态 ---------- */
   const DEF = { records: {}, sessions: [], settings: { shuffle: true, showEn: true, api: { base: "", key: "", model: "gpt-4o-mini" } } };
