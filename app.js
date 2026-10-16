@@ -5,7 +5,7 @@
   const TUT = window.TUTORIALS || [];
   const MCQ = BANK.mcq, SHORT = BANK.short;
   const LSKEY = "odoo19_trainer_v1";
-  const APP_VER = "v11";
+  const APP_VER = "v12";
 
   /* ---------- 状态 ---------- */
   const DEF = { records: {}, sessions: [], settings: { shuffle: true, showEn: true, api: { base: "", key: "", model: "gpt-4o-mini" } } };
@@ -59,7 +59,16 @@
     s = s.replace(/`([^`]+)`/g, (m, a) => "<code>" + a + "</code>");
     s = s.replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>");
     s = s.replace(/(^|[\s(（])\*([^*\n]+)\*/g, "$1<i>$2</i>");
-    s = s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noreferrer">$1</a>');
+    s = s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, text, href) => {
+      // 文档之间的内部跳转（编译时由 build_tutorials.py 写成 #doc=<文件名>，见教程↔教程互链）
+      if (href.indexOf("#doc=") === 0) {
+        let f = href.slice(5);
+        try { f = decodeURIComponent(f); } catch (e) {}
+        f = f.replace(/&/g, "&amp;").replace(/"/g, "&quot;");
+        return '<a href="#" class="doclink" data-act="doc" data-val="' + f + '">' + text + "</a>";
+      }
+      return '<a href="' + href + '" target="_blank" rel="noreferrer">' + text + "</a>";
+    });
     return s;
   }
   function mdToHtml(md) {
@@ -110,7 +119,10 @@
       m = ln.match(/^(\s*)([-*+]|\d+[.)])\s+(.*)$/);
       if (m) {
         const indent = m[1].replace(/\t/g, "  ").length;
-        listBuf.push({ d: indent >= 2 ? 1 : 0, t: m[3] }); i++; continue;
+        let t = m[3];
+        const ck = t.match(/^\[([ xX])\]\s+(.*)$/);      /* 任务清单 - [ ] / - [x] → ☐ / ☑ */
+        if (ck) t = (ck[1] === " " ? "☐ " : "☑ ") + ck[2];
+        listBuf.push({ d: indent >= 2 ? 1 : 0, t: t }); i++; continue;
       }
       flushList();
       const buf = [];
@@ -164,6 +176,7 @@
   }
   function onAct(e) {
     const el = e.currentTarget, act = el.dataset.act, val = el.dataset.val;
+    if (el.tagName === "A" && el.getAttribute("href") === "#") e.preventDefault();   /* 文档内互链：别改地址栏 */
     const map = {
       "go": () => go(val),
       "start-practice": () => startPractice(), "pick": () => pickOption(val),
@@ -759,9 +772,12 @@
   }
   function viewDocs() {
     const cur = TUT.find(t => t.file === curDoc) || TUT[0];
-    const kind = f => /速记手册/.test(f) ? "速记手册" : (/^\d\d-/.test(f) ? (parseInt(f, 10) <= 19 ? "备考教程" : "题库 / 规范 / 清单") : "其他");
-    const groups = { "速记手册": [], "备考教程": [], "题库 / 规范 / 清单": [], "其他": [] };
-    TUT.forEach(t => groups[kind(t.file)].push(t));
+    /* 分组优先用编译时写入的 group（备考 48 篇 + 学习库 50 篇），没有才按老文件名规则兜底 */
+    const kind = t => t.group || (/速记手册/.test(t.file) ? "速记手册" : (/^\d\d-/.test(t.file) ? (parseInt(t.file, 10) <= 19 ? "备考教程" : "题库 / 规范 / 清单") : "其他"));
+    const ORDER = ["速记手册", "备考教程", "题库 / 规范 / 清单", "学习库总览", "业务学习", "实施指南", "技术开发", "其他"];
+    const groups = {};
+    ORDER.forEach(g => (groups[g] = []));
+    TUT.forEach(t => { const g = kind(t); (groups[g] || (groups[g] = [])).push(t); });
     return `
     <div class="docs">
       <div class="doclist card">
@@ -771,7 +787,7 @@
       </div>
       <div class="card">
         <div class="row between">
-          <div class="small muted">${esc(cur.file)}</div>
+          <div class="small muted">${esc(cur.path || cur.file)}</div>
           <button class="btn" data-act="doc" data-val="${esc(curDoc)}" onclick="document.querySelector('.docs .card:last-child').scrollIntoView()">回到顶部</button>
         </div>
         <div class="md" id="doc-body">${mdToHtml(cur.text)}</div>

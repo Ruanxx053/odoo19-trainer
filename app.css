@@ -197,3 +197,7 @@ body.zoom-open{overflow:hidden}
 .zoom-scroll{flex:1 1 auto;overflow:auto;-webkit-overflow-scrolling:touch;background:#fff;margin:10px;margin-bottom:calc(10px + env(safe-area-inset-bottom,0px));border-radius:12px}
 .zoom-inner{width:200%;padding:12px;box-sizing:border-box}
 .zoom-inner svg{max-width:none !important;width:100% !important;height:auto !important;display:block}
+
+/* 文档内互链（教程 ↔ 教程：编译时改成 #doc=<文件>，点开直接换文档） */
+.md a{color:var(--brand);text-decoration:none;border-bottom:1px solid rgba(106,75,216,.28)}
+.md a:hover{border-bottom-color:var(--brand)}
